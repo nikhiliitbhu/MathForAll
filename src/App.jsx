@@ -7,16 +7,20 @@ import { Navbar } from "@/components/Navbar";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
 import Learn from "@/pages/Learn";
+import About from "@/pages/About";
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 const queryClient = new QueryClient();
 function Router() {
   return /*#__PURE__*/_jsxs(Switch, {
-    children: [/*#__PURE__*/_jsx(Route, {
+children: [/*#__PURE__*/_jsx(Route, {
       path: "/",
       component: Home
     }), /*#__PURE__*/_jsx(Route, {
       path: "/learn",
       component: Learn
+    }), /*#__PURE__*/_jsx(Route, {
+      path: "/about",
+      component: About
     }), /*#__PURE__*/_jsx(Route, {
       component: NotFound
     })]

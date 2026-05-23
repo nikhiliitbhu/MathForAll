@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link, useLocation } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 import { useTheme } from "./ThemeProvider";
 import { Button } from "./ui/button";
+import { useLanguage } from "./LanguageProvider";
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 
 const classes = ["6", "7", "8", "9", "10", "11", "12"];
@@ -70,6 +71,7 @@ const resourceLinks = [
 export function Navbar() {
   const [location, setLocation] = useLocation();
   const { theme, setTheme } = useTheme();
+  const { setLanguage, t } = useLanguage();
 
   const [mobileOpen, setMobileOpen] = useState(false);
   const [classesOpen, setClassesOpen] = useState(false);
@@ -97,9 +99,7 @@ export function Navbar() {
               _jsx("div", {
                 className:
                   "h-8 w-8 rounded-xl bg-gradient-to-br from-primary to-fuchsia-600 flex items-center justify-center shadow-md shadow-primary/30",
-                children: _jsx(Pi, {
-                  className: "h-4 w-4 text-white",
-                }),
+                children: _jsx(Pi, { className: "h-4 w-4 text-white" }),
               }),
               _jsx("span", {
                 className:
@@ -114,21 +114,21 @@ export function Navbar() {
             children: [
               _jsx(Link, {
                 href: "/",
-                className: `px-3 py-2 rounded-xl transition-colors ${
-                  location === "/"
+                className:
+                  "px-3 py-2 rounded-xl transition-colors " +
+                  (location === "/"
                     ? "text-primary bg-primary/8"
-                    : "text-muted-foreground hover:text-foreground hover:bg-secondary"
-                }`,
-                children: "Home",
+                    : "text-muted-foreground hover:text-foreground hover:bg-secondary"),
+                children: t.navbar.home,
               }),
               _jsx(Link, {
                 href: "/learn",
-                className: `px-3 py-2 rounded-xl transition-colors ${
-                  location === "/learn"
+                className:
+                  "px-3 py-2 rounded-xl transition-colors " +
+                  (location === "/learn"
                     ? "text-primary bg-primary/8"
-                    : "text-muted-foreground hover:text-foreground hover:bg-secondary"
-                }`,
-                children: "Learn",
+                    : "text-muted-foreground hover:text-foreground hover:bg-secondary"),
+                children: t.navbar.learn,
               }),
 
               _jsxs("div", {
@@ -140,23 +140,24 @@ export function Navbar() {
                       setClassesOpen(true);
                       setResourcesOpen(false);
                     },
-                    className: `flex items-center gap-1 px-3 py-2 rounded-xl transition-colors ${
-                      classesOpen
+                    className:
+                      "flex items-center gap-1 px-3 py-2 rounded-xl transition-colors " +
+                      (classesOpen
                         ? "text-primary bg-primary/8"
-                        : "text-muted-foreground hover:text-foreground hover:bg-secondary"
-                    }`,
+                        : "text-muted-foreground hover:text-foreground hover:bg-secondary"),
                     children: [
                       "Classes",
                       _jsx(ChevronDown, {
-                        className: `h-3.5 w-3.5 transition-transform ${
-                          classesOpen ? "rotate-180" : ""
-                        }`,
+                        className:
+                          "h-3.5 w-3.5 transition-transform " +
+                          (classesOpen ? "rotate-180" : ""),
                       }),
                     ],
                   }),
 
                   _jsx(AnimatePresence, {
-                    children: classesOpen &&
+                    children:
+                      classesOpen &&
                       _jsxs(motion.div, {
                         initial: { opacity: 0, y: 8 },
                         animate: { opacity: 1, y: 0 },
@@ -211,17 +212,17 @@ export function Navbar() {
                       setResourcesOpen(true);
                       setClassesOpen(false);
                     },
-                    className: `flex items-center gap-1 px-3 py-2 rounded-xl transition-colors ${
-                      resourcesOpen
+                    className:
+                      "flex items-center gap-1 px-3 py-2 rounded-xl transition-colors " +
+                      (resourcesOpen
                         ? "text-primary bg-primary/8"
-                        : "text-muted-foreground hover:text-foreground hover:bg-secondary"
-                    }`,
+                        : "text-muted-foreground hover:text-foreground hover:bg-secondary"),
                     children: [
-                      "Resources",
+                      t.navbar.resources,
                       _jsx(ChevronDown, {
-                        className: `h-3.5 w-3.5 transition-transform ${
-                          resourcesOpen ? "rotate-180" : ""
-                        }`,
+                        className:
+                          "h-3.5 w-3.5 transition-transform " +
+                          (resourcesOpen ? "rotate-180" : ""),
                       }),
                     ],
                   }),
@@ -262,8 +263,7 @@ export function Navbar() {
                                       children: label,
                                     }),
                                     _jsx("p", {
-                                      className:
-                                        "text-xs text-muted-foreground",
+                                      className: "text-xs text-muted-foreground",
                                       children: desc,
                                     }),
                                   ],
@@ -280,7 +280,7 @@ export function Navbar() {
                 href: "/about",
                 className:
                   "px-3 py-2 rounded-xl text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors",
-                children: "About",
+                children: t.navbar.about,
               }),
             ],
           }),
@@ -298,7 +298,7 @@ export function Navbar() {
                   _jsx(GraduationCap, {
                     className: "h-3.5 w-3.5 mr-1.5",
                   }),
-                  "Start Learning",
+                  t.navbar.startLearning,
                   _jsx(ArrowRight, { className: "h-3 w-3 ml-1" }),
                 ],
               }),
@@ -329,9 +329,7 @@ export function Navbar() {
                 onClick: () => setMobileOpen((v) => !v),
                 className: "md:hidden rounded-full h-9 w-9",
                 "aria-label": "Toggle menu",
-                children: mobileOpen
-                  ? _jsx(X, { className: "h-5 w-5" })
-                  : _jsx(Menu, { className: "h-5 w-5" }),
+                children: mobileOpen ? _jsx(X, { className: "h-5 w-5" }) : _jsx(Menu, { className: "h-5 w-5" }),
               }),
             ],
           }),
@@ -346,114 +344,119 @@ export function Navbar() {
             animate: { opacity: 1, height: "auto" },
             exit: { opacity: 0, height: 0 },
             transition: { duration: 0.22 },
-            className:
-              "md:hidden border-t border-border bg-background overflow-hidden",
-            children: _jsxs("div", {
-              className: "px-4 py-4 space-y-1",
-              children: [
-                _jsx(Link, {
-                  href: "/",
-                  onClick: () => setMobileOpen(false),
-                  className: `flex items-center px-4 py-3 rounded-xl text-sm font-medium transition-colors ${
-                    location === "/"
-                      ? "text-primary bg-primary/8"
-                      : "text-foreground hover:bg-secondary"
-                  }`,
-                  children: "Home",
-                }),
-                _jsx(Link, {
-                  href: "/learn",
-                  onClick: () => setMobileOpen(false),
-                  className: `flex items-center px-4 py-3 rounded-xl text-sm font-medium transition-colors ${
-                    location === "/learn"
-                      ? "text-primary bg-primary/8"
-                      : "text-foreground hover:bg-secondary"
-                  }`,
-                  children: "Learn",
-                }),
+            className: "md:hidden border-t border-border bg-background overflow-hidden",
+            children: [
+              _jsxs("div", {
+                className: "px-4 py-4 space-y-1",
+                children: [
+                  _jsx(Link, {
+                    href: "/",
+                    onClick: () => setMobileOpen(false),
+                    className:
+                      "flex items-center px-4 py-3 rounded-xl text-sm font-medium transition-colors " +
+                      (location === "/"
+                        ? "text-primary bg-primary/8"
+                        : "text-foreground hover:bg-secondary"),
+                    children: t.navbar.home,
+                  }),
+                  _jsx(Link, {
+                    href: "/learn",
+                    onClick: () => setMobileOpen(false),
+                    className:
+                      "flex items-center px-4 py-3 rounded-xl text-sm font-medium transition-colors " +
+                      (location === "/learn"
+                        ? "text-primary bg-primary/8"
+                        : "text-foreground hover:bg-secondary"),
+                    children: t.navbar.learn,
+                  }),
 
-                _jsx("div", {
-                  className: "pt-1 pb-1",
-                  children: [
-                    _jsx("p", {
-                      className:
-                        "text-xs font-bold text-muted-foreground uppercase tracking-widest px-4 py-2",
-                      children: "Classes",
-                    }),
-                    _jsxs("div", {
-                      className: "grid grid-cols-4 gap-1",
-                      children: classes.map((c) =>
+                  _jsx("div", {
+                    className: "pt-1 pb-1",
+                    children: [
+                      _jsx("p", {
+                        className:
+                          "text-xs font-bold text-muted-foreground uppercase tracking-widest px-4 py-2",
+                        children: t.navbar.classes,
+                      }),
+                      _jsxs("div", {
+                        className: "grid grid-cols-4 gap-1",
+                        children: classes.map((c) =>
+                          _jsx(
+                            "button",
+                            {
+                              key: c,
+                              onClick: () => {
+                                setLocation("/learn");
+                                setMobileOpen(false);
+                              },
+                              className:
+                                "flex items-center justify-center py-2.5 rounded-xl text-sm font-bold text-foreground hover:bg-primary hover:text-primary-foreground transition-colors border border-border",
+                              children: c,
+                            },
+                            c
+                          )
+                        ),
+                      }),
+                    ],
+                  }),
+
+                  _jsx("div", {
+                    className: "pt-1",
+                    children: [
+                      _jsx("p", {
+                        className:
+                          "text-xs font-bold text-muted-foreground uppercase tracking-widest px-4 py-2",
+                        children: t.navbar.resources,
+                      }),
+                      resourceLinks.map(({ icon: Icon, label, href }) =>
                         _jsx(
                           "button",
                           {
+                            key: label,
                             onClick: () => {
-                              setLocation("/learn");
+                              setLocation(href);
                               setMobileOpen(false);
                             },
                             className:
-                              "flex items-center justify-center py-2.5 rounded-xl text-sm font-bold text-foreground hover:bg-primary hover:text-primary-foreground transition-colors border border-border",
-                            children: c,
+                              "w-full flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm text-foreground hover:bg-secondary transition-colors text-left",
+                            children: [
+                              _jsx(Icon, { className: "h-4 w-4 text-primary" }),
+                              label,
+                            ],
                           },
-                          c,
+                          label
                         )
                       ),
-                    }),
-                  ],
-                }),
-
-                _jsx("div", {
-                  className: "pt-1",
-                  children: [
-                    _jsx("p", {
-                      className:
-                        "text-xs font-bold text-muted-foreground uppercase tracking-widest px-4 py-2",
-                      children: "Resources",
-                    }),
-                    resourceLinks.map(({ icon: Icon, label, href }) =>
-                      _jsx(
-                        "button",
-                        {
-                          onClick: () => {
-                            setLocation(href);
-                            setMobileOpen(false);
-                          },
-                          className:
-                            "w-full flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm text-foreground hover:bg-secondary transition-colors text-left",
-                          children: [
-                            _jsx(Icon, { className: "h-4 w-4 text-primary" }),
-                            label,
-                          ],
-                        },
-                        label,
-                      )
-                    ),
-                  ],
-                }),
-
-                _jsx("div", {
-                  className: "pt-2 pb-1",
-                  children: _jsx(Button, {
-                    className: "w-full rounded-xl",
-                    onClick: () => {
-                      setLocation("/learn");
-                      setMobileOpen(false);
-                    },
-                    children: [
-                      _jsx(GraduationCap, { className: "h-4 w-4 mr-2" }),
-                      "Start Learning Now",
                     ],
                   }),
-                }),
 
-                _jsx(Link, {
-                  href: "/about",
-                  onClick: () => setMobileOpen(false),
-                  className:
-                    "flex items-center px-4 py-3 rounded-xl text-sm font-medium transition-colors text-foreground hover:bg-secondary",
-                  children: "About",
-                }),
-              ],
-            }),
+                  _jsx("div", {
+                    className: "pt-2 pb-1",
+                    children: _jsx(Button, {
+                      className: "w-full rounded-xl",
+                      onClick: () => {
+                        setLocation("/learn");
+                        setMobileOpen(false);
+                      },
+                      children: [
+                        _jsx(GraduationCap, { className: "h-4 w-4 mr-2" }),
+                        t.navbar.startLearning,
+                      ],
+                    }),
+                  }),
+
+                  _jsx(Link, {
+                    href: "/about",
+                    onClick: () => setMobileOpen(false),
+                    className:
+                      "flex items-center px-4 py-3 rounded-xl text-sm font-medium transition-colors text-foreground hover:bg-secondary",
+                    children: t.navbar.about,
+                  }),
+
+                  {/* Language select moved to Learn page */}
+                ],
+              }),
+            ],
           }),
       }),
     ],

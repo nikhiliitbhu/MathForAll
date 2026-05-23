@@ -4,6 +4,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { Navbar } from "@/components/Navbar";
+import { LanguageProvider } from "@/components/LanguageProvider";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
 import Learn from "@/pages/Learn";
@@ -12,7 +13,7 @@ import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 const queryClient = new QueryClient();
 function Router() {
   return /*#__PURE__*/_jsxs(Switch, {
-children: [/*#__PURE__*/_jsx(Route, {
+    children: [/*#__PURE__*/_jsx(Route, {
       path: "/",
       component: Home
     }), /*#__PURE__*/_jsx(Route, {
@@ -30,16 +31,18 @@ function App() {
   return /*#__PURE__*/_jsx(ThemeProvider, {
     defaultTheme: "system",
     storageKey: "mathslab-theme",
-    children: /*#__PURE__*/_jsx(QueryClientProvider, {
-      client: queryClient,
-      children: /*#__PURE__*/_jsxs(TooltipProvider, {
-        children: [/*#__PURE__*/_jsx("div", {
-          className: "min-h-screen bg-background font-sans",
-          children: /*#__PURE__*/_jsxs(WouterRouter, {
-            base: import.meta.env.BASE_URL.replace(/\/$/, ""),
-            children: [/*#__PURE__*/_jsx(Navbar, {}), /*#__PURE__*/_jsx(Router, {})]
-          })
-        }), /*#__PURE__*/_jsx(Toaster, {})]
+    children: /*#__PURE__*/_jsx(LanguageProvider, {
+      children: /*#__PURE__*/_jsx(QueryClientProvider, {
+        client: queryClient,
+        children: /*#__PURE__*/_jsxs(TooltipProvider, {
+          children: [/*#__PURE__*/_jsx("div", {
+            className: "min-h-screen bg-background font-sans",
+            children: /*#__PURE__*/_jsxs(WouterRouter, {
+              base: import.meta.env.BASE_URL.replace(/\/$/, ""),
+              children: [/*#__PURE__*/_jsx(Navbar, {}), /*#__PURE__*/_jsx(Router, {})]
+            })
+          }), /*#__PURE__*/_jsx(Toaster, {})]
+        })
       })
     })
   });

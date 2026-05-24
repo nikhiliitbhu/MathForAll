@@ -240,11 +240,12 @@ export default function Home() {
               }), "For Class 6\u201312 Students"]
             }), /*#__PURE__*/_jsxs("h1", {
               className: "text-4xl md:text-6xl lg:text-7xl font-bold font-display tracking-tight text-foreground leading-[1.1]",
-              children: ["Learn Maths.", /*#__PURE__*/_jsx("br", {}), /*#__PURE__*/_jsx("span", {
-                className: "text-transparent bg-clip-text bg-gradient-to-r from-primary to-fuchsia-500",
+              children: ["Learn Maths.", " ", /*#__PURE__*/_jsx("span", {
+              className: "text-transparent bg-clip-text bg-gradient-to-r from-primary to-fuchsia-500",
                 children: "Score Higher."
               })]
             }), /*#__PURE__*/_jsx("p", {
+
               className: "text-lg md:text-xl text-muted-foreground max-w-[560px] mx-auto lg:mx-0",
               children: "Your complete Maths guide for Class 6\u201312. Study chapter-wise, master formulas, test yourself with quizzes \u2014 all in one place, completely free."
             })]

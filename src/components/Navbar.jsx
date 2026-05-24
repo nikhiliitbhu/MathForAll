@@ -96,15 +96,17 @@ export function Navbar() {
             className:
               "flex items-center gap-2 flex-shrink-0 transition-opacity hover:opacity-85",
             children: [
-              _jsx("div", {
-                className:
-                  "h-8 w-8 rounded-xl bg-gradient-to-br from-primary to-fuchsia-600 flex items-center justify-center shadow-md shadow-primary/30",
-                children: _jsx(Pi, { className: "h-4 w-4 text-white" }),
+              _jsx("img", {
+                src: "/logo.png",
+                alt: "Mathrix logo",
+                className: "h-10 w-10 rounded-xl object-contain bg-transparent",
+                draggable: false,
               }),
               _jsx("span", {
                 className:
-                  "text-lg font-bold font-display tracking-tight text-foreground",
-                children: "Mathrix",
+                  "text-2xl font-bold font-display tracking-tight text-foreground -ml-2 text-transparent bg-clip-text bg-gradient-to-r from-[#8B26EF] to-[#E317E3] font-bold",
+                children: "athrix",
+
               }),
             ],
           }),

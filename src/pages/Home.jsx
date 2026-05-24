@@ -234,37 +234,36 @@ export default function Home() {
           children: [/*#__PURE__*/_jsxs("div", {
             className: "space-y-5",
             children: [/*#__PURE__*/_jsxs("div", {
-              className: "inline-flex items-center rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-sm font-medium text-primary",
+              className: "inline-flex items-center rounded-full border border-primary/20 bg-primary/10 px-2.5 py-0.5 md:px-3 md:py-1 text-xs md:text-sm font-medium text-primary",
               children: [/*#__PURE__*/_jsx("span", {
                 className: "flex h-2 w-2 rounded-full bg-primary mr-2"
               }), "For Class 6\u201312 Students"]
             }), /*#__PURE__*/_jsxs("h1", {
-              className: "text-4xl md:text-6xl lg:text-7xl font-bold font-display tracking-tight text-foreground leading-[1.1]",
-              children: ["Learn Maths.", " ", /*#__PURE__*/_jsx("span", {
+              className: "text-4xl md:text-7xl lg:text-8xl font-bold font-display tracking-tight text-foreground leading-[1.15] md:leading-[1.1]",
+              children: ["Learn Maths.", /*#__PURE__*/_jsx("br", {}), /*#__PURE__*/_jsx("span", {
               className: "text-transparent bg-clip-text bg-gradient-to-r from-primary to-fuchsia-500",
                 children: "Score Higher."
               })]
             }), /*#__PURE__*/_jsx("p", {
-
-              className: "text-lg md:text-xl text-muted-foreground max-w-[560px] mx-auto lg:mx-0",
+              className: "text-sm md:text-lg text-muted-foreground max-w-[560px] mx-auto lg:mx-0 leading-relaxed",
               children: "Your complete Maths guide for Class 6\u201312. Study chapter-wise, master formulas, test yourself with quizzes \u2014 all in one place, completely free."
             })]
           }), /*#__PURE__*/_jsxs("div", {
-            className: "flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start",
+            className: "flex flex-col sm:flex-row items-center gap-3 md:gap-4 justify-center lg:justify-start",
             children: [/*#__PURE__*/_jsxs(Button, {
               size: "lg",
               "data-testid": "button-start-learning",
-              className: "w-full sm:w-auto text-base h-14 px-8 rounded-full shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all hover:-translate-y-1",
+              className: "w-full sm:w-auto text-base h-12 md:h-14 px-8 rounded-full shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all hover:-translate-y-1",
               onClick: () => setLocation("/learn"),
               children: ["Start Learning Now", /*#__PURE__*/_jsx(ArrowRight, {
-                className: "ml-2 h-5 w-5"
+                className: "ml-2 h-4 w-4 md:h-5 md:w-5"
               })]
             }), /*#__PURE__*/_jsxs(Button, {
               size: "lg",
               variant: "outline",
               "data-testid": "button-view-syllabus",
               onClick: () => setLocation("/learn"),
-              className: "w-full sm:w-auto text-base h-14 px-8 rounded-full",
+              className: "w-full sm:w-auto text-base h-12 md:h-14 px-8 rounded-full",
               children: [/*#__PURE__*/_jsx(Play, {
                 className: "mr-2 h-4 w-4 fill-current"
               }), "View Syllabus"]
@@ -285,7 +284,7 @@ export default function Home() {
             duration: 0.8,
             delay: 0.2
           },
-          className: "relative h-[420px] md:h-[520px] lg:h-[600px] w-full flex items-center justify-center",
+          className: "relative h-[300px] md:h-[520px] lg:h-[600px] w-full flex items-center justify-center mt-8 lg:mt-0",
           children: /*#__PURE__*/_jsx("img", {
             src: heroImage,
             alt: "Student learning mathematics with 3D shapes",
@@ -509,7 +508,7 @@ export default function Home() {
           viewport: {
             once: true
           },
-          className: "grid sm:grid-cols-2 lg:grid-cols-4 gap-5",
+          className: "grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-5",
           children: [classes.map(({
             cls,
             topics,
@@ -522,11 +521,11 @@ export default function Home() {
             children: [/*#__PURE__*/_jsx("div", {
               className: `h-2 w-full bg-gradient-to-r ${color}`
             }), /*#__PURE__*/_jsxs("div", {
-              className: "p-6",
+              className: "p-4 md:p-6",
               children: [/*#__PURE__*/_jsxs("div", {
                 className: "flex items-center justify-between mb-4",
                 children: [/*#__PURE__*/_jsx("span", {
-                  className: `text-4xl font-extrabold font-display text-transparent bg-clip-text bg-gradient-to-br ${color}`,
+                  className: `text-3xl md:text-4xl font-extrabold font-display text-transparent bg-clip-text bg-gradient-to-br ${color}`,
                   children: cls
                 }), /*#__PURE__*/_jsx("span", {
                   className: "text-xs font-semibold text-muted-foreground uppercase tracking-wider",
@@ -535,13 +534,13 @@ export default function Home() {
               }), /*#__PURE__*/_jsx("ul", {
                 className: "space-y-1.5",
                 children: topics.map(t => /*#__PURE__*/_jsxs("li", {
-                  className: "flex items-center gap-2 text-sm text-muted-foreground",
+                  className: "flex items-start gap-2 text-[13px] md:text-sm text-muted-foreground leading-snug",
                   children: [/*#__PURE__*/_jsx("span", {
-                    className: "h-1.5 w-1.5 rounded-full bg-primary/50 flex-shrink-0"
+                    className: "h-1.5 w-1.5 rounded-full bg-primary/50 flex-shrink-0 mt-1.5"
                   }), t]
                 }, t))
               }), /*#__PURE__*/_jsxs("div", {
-                className: "mt-5 flex items-center gap-1 text-xs font-semibold text-primary group-hover:gap-2 transition-all",
+                className: "mt-4 md:mt-5 flex items-center gap-1 text-[11px] md:text-xs font-semibold text-primary group-hover:gap-2 transition-all",
                 children: ["Open ", /*#__PURE__*/_jsx(ChevronRight, {
                   className: "h-3 w-3"
                 })]
@@ -549,14 +548,14 @@ export default function Home() {
             })]
           }, cls)), /*#__PURE__*/_jsxs(motion.div, {
             variants: fadeUp,
-            className: "relative bg-gradient-to-br from-primary/10 to-fuchsia-500/10 border border-primary/20 rounded-3xl overflow-hidden flex flex-col items-center justify-center p-6 min-h-[220px]",
+            className: "relative bg-gradient-to-br from-primary/10 to-fuchsia-500/10 border border-primary/20 rounded-3xl overflow-hidden flex flex-col items-center justify-center p-4 md:p-6 min-h-[180px] md:min-h-[220px]",
             children: [/*#__PURE__*/_jsx("div", {
-              className: "h-28 w-28 mb-3",
+              className: "h-20 w-20 md:h-28 md:w-28 mb-3",
               children: /*#__PURE__*/_jsx(ThreeScene, {
                 shapeType: "cube"
               })
             }), /*#__PURE__*/_jsx("p", {
-              className: "text-sm font-semibold text-foreground text-center",
+              className: "text-xs md:text-sm font-semibold text-foreground text-center",
               children: "3D Shape Explorer"
             }), /*#__PURE__*/_jsx("p", {
               className: "text-xs text-muted-foreground text-center mt-1",
@@ -1037,4 +1036,3 @@ export default function Home() {
     })]
   });
 }
-

@@ -76,6 +76,15 @@ export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [classesOpen, setClassesOpen] = useState(false);
   const [resourcesOpen, setResourcesOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const closeAll = () => {
     setClassesOpen(false);
@@ -83,8 +92,7 @@ export function Navbar() {
   };
 
   return _jsxs("nav", {
-    className:
-      "sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60",
+    className: "sticky top-0 z-50 w-full transition-all duration-300 " + (isScrolled || mobileOpen ? "border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60" : "bg-transparent border-b border-transparent"),
     onMouseLeave: closeAll,
     children: [
       _jsxs("div", {
@@ -464,4 +472,3 @@ export function Navbar() {
     ],
   });
 }
-

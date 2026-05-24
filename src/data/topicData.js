@@ -6,34 +6,57 @@ export const topicData = {
     "c6-1": [
       {
         id: "t1",
-        title: "Points, Lines & Rays",
+        title: "What are Natural Numbers?",
         content:
-          "A point has no dimension. A line extends infinitely in both directions. A ray starts at a point and goes infinitely in one direction. A line segment has two fixed endpoints.",
+          "All numbers used for counting (1, 2, 3, 4, ...) are called Natural Numbers. These numbers are used to count objects in a set and represent quantity. They start from 1 and go up to infinity.",
         keyFact:
-          "A line has no endpoints, a ray has one, a segment has two.",
+          "The smallest natural number is 1.",
       },
       {
         id: "t2",
-        title: "Types of Angles",
+        title: "Number and Numerals",
         content:
-          "Acute angle: less than 90°. Right angle: exactly 90°. Obtuse angle: between 90° and 180°. Straight angle: exactly 180°. Reflex angle: greater than 180°.",
+          "A number is a mathematical concept used for counting, while a numeral is the symbol or word used to represent that number. This topic covers writing numbers in digits (123) and words (One hundred twenty-three), as well as handling large numbers.",
         keyFact:
-          "Complementary angles add to 90°. Supplementary angles add to 180°.",
+          "A numeral is just a written sign for a number.",
       },
       {
         id: "t3",
-        title: "Triangles",
+        title: "Place Value and Face Value",
         content:
-          "A triangle has 3 sides, 3 angles, and 3 vertices. Types by sides: Equilateral (all equal), Isosceles (two equal), Scalene (all different). Types by angle: Acute, Right, Obtuse.",
-        keyFact: "The sum of all angles in any triangle is always 180°.",
+          "Face Value is the digit itself, regardless of its position. Place Value is the value of a digit based on its position in the number (Ones, Tens, Hundreds, etc.). Expanded Form is writing a number as the sum of its digits' place values.",
+        keyFact: "Place value changes with position, but face value always remains the same.",
       },
       {
         id: "t4",
-        title: "Quadrilaterals",
+        title: "Predecessor and Successor",
         content:
-          "A quadrilateral has 4 sides and 4 angles. Types include Square, Rectangle, Rhombus, Parallelogram, Trapezium, and Kite. The sum of interior angles is always 360°.",
+          "Predecessor: The number that comes just before a given number, obtained by subtracting 1 (n - 1). Successor: The number that comes just after a given number, obtained by adding 1 (n + 1).",
         keyFact:
-          "All rectangles are parallelograms, but not all parallelograms are rectangles.",
+          "Every natural number except 1 has a predecessor.",
+      },
+      {
+        id: "t5",
+        title: "Comparison of Numbers",
+        content:
+          "To compare numbers, we first check the number of digits. If the digits are equal, we compare from the leftmost position. This helps in identifying the greatest and smallest numbers in a group.",
+        keyFact:
+          "Numbers can be arranged in Ascending (increasing) or Descending (decreasing) order.",
+      },
+      {
+        id: "t6",
+        title: "Formation of Numbers",
+        content:
+          "Using a given set of digits, we can form the largest number by arranging digits in descending order, and the smallest number by arranging them in ascending order (keeping in mind not to start with zero).",
+        keyFact:
+          "Largest number uses descending order, Smallest uses ascending order.",
+      },
+      {
+        id: "t7",
+        title: "Number Line",
+        content:
+          "A number line is a visual representation where natural numbers are marked at equal distances. Moving to the right increases the value, and moving to the left decreases it.",
+        keyFact: "The distance between any two consecutive natural numbers on the line is 1 unit.",
       },
     ],
     "c6-2": [
@@ -105,34 +128,57 @@ export const topicData = {
     "c6-1": [
       {
         id: "t1",
-        title: "बिंदु, रेखाएँ और किरणें",
+        title: "प्राकृतिक संख्याएँ क्या हैं?",
         content:
-          "बिंदु का कोई आयाम नहीं होता। रेखा दोनों दिशाओं में अनंत तक फैली होती है। किरण एक बिंदु से शुरू होकर एक ही दिशा में अनंत तक जाती है। रेखाखंड के दो निश्चित सिरे होते हैं।",
+          "गिनती में प्रयुक्त होने वाली सभी संख्याएँ (1, 2, 3, 4, ...) प्राकृतिक संख्याएँ कहलाती हैं। इन संख्याओं का उपयोग वस्तुओं को गिनने के लिए किया जाता है। ये 1 से शुरू होकर अनंत तक जाती हैं।",
         keyFact:
-          "रेखा के कोई सिरे नहीं होते, किरण का 1 सिरा होता है, और रेखाखंड के 2 सिरे होते हैं।",
+          "सबसे छोटी प्राकृतिक संख्या 1 होती है।",
       },
       {
         id: "t2",
-        title: "कोणों के प्रकार",
+        title: "संख्या और संख्यांक",
         content:
-          "तेज कोण: 90° से कम। समकोण: बिल्कुल 90°। अधिक कोण: 90° और 180° के बीच। सरल कोण: बिल्कुल 180°। प्रतिवर्ती (रिफ्लेक्स) कोण: 180° से अधिक।",
+          "संख्या एक विचार है, जबकि संख्यांक (numeral) उस संख्या को लिखने का संकेत है। इस विषय में हम संख्याओं को अंकों और शब्दों में लिखना और बड़ी संख्याओं को पढ़ना सीखेंगे।",
         keyFact:
-          "पूरक कोणों का योग 90° होता है। पूरक (सप्लीमेंटरी) कोणों का योग 180° होता है।",
+          "संख्यांक केवल संख्या को दर्शाने का एक प्रतीक है।",
       },
       {
         id: "t3",
-        title: "त्रिभुज",
+        title: "स्थानीय मान और अंकित मान",
         content:
-          "त्रिभुज में 3 भुजाएँ, 3 कोण और 3 शीर्ष होते हैं। भुजाओं के आधार पर: समबाहु (तीनों बराबर), समद्विबाहु (दो बराबर), विषमबाहु (तीनों अलग)। कोणों के आधार पर: तीक्ष्ण, समकोण, अधिक कोण।",
-        keyFact: "किसी भी त्रिभुज के सभी कोणों का योग हमेशा 180° होता है।",
+          "किसी अंक का अंकित मान (Face Value) स्वयं वही अंक होता है। स्थानीय मान (Place Value) किसी संख्या में अंक की स्थिति (इकाई, दहाई, सैकड़ा आदि) के आधार पर उसका मान होता है। विस्तारित रूप में हम संख्या को उसके स्थानीय मानों के योग के रूप में लिखते हैं।",
+        keyFact: "स्थान बदलने पर स्थानीय मान बदल जाता है, लेकिन अंकित मान वही रहता है।",
       },
       {
         id: "t4",
-        title: "चतुर्भुज",
+        title: "पूर्ववर्ती और अनुवर्ती संख्याएँ",
         content:
-          "चतुर्भुज में 4 भुजाएँ और 4 कोण होते हैं। प्रकारों में वर्ग (Square), आयत (Rectangle), समलंब (Rhombus), समांतर चतुर्भुज (Parallelogram), समलम्ब चतुर्भुज (Trapezium) और पतंग (Kite) शामिल हैं। सभी अंतःकोणों का योग हमेशा 360° होता है।",
+          "पूर्ववर्ती (Predecessor): किसी संख्या के ठीक पहले वाली संख्या, जो संख्या में से 1 घटाने पर प्राप्त होती है (n - 1)। अनुवर्ती (Successor): किसी संख्या के ठीक बाद वाली संख्या, जो संख्या में 1 जोड़ने पर प्राप्त होती है (n + 1)।",
         keyFact:
-          "सभी आयतें समांतर चतुर्भुज होती हैं, लेकिन सभी समांतर चतुर्भुज आयतें नहीं होते।",
+          "1 को छोड़कर प्रत्येक प्राकृतिक संख्या का एक पूर्ववर्ती होता है।",
+      },
+      {
+        id: "t5",
+        title: "संख्याओं की तुलना",
+        content:
+          "संख्याओं की तुलना करने के लिए सबसे पहले अंकों की संख्या देखी जाती है। यदि अंक बराबर हों, तो सबसे बाईं ओर के अंकों की तुलना की जाती है। इससे हमें सबसे बड़ी और सबसे छोटी संख्या की पहचान करने में मदद मिलती है।",
+        keyFact:
+          "संख्याओं को बढ़ते क्रम (Ascending) या घटते क्रम (Descending) में व्यवस्थित किया जा सकता है।",
+      },
+      {
+        id: "t6",
+        title: "अंकों से संख्याएँ बनाना",
+        content:
+          "दिए गए अंकों का उपयोग करके सबसे बड़ी संख्या बनाने के लिए अंकों को घटते क्रम में और सबसे छोटी संख्या बनाने के लिए बढ़ते क्रम में लिखा जाता है।",
+        keyFact:
+          "सबसे छोटी संख्या बनाते समय ध्यान रखें कि शून्य (0) पहले स्थान पर नहीं आ सकता।",
+      },
+      {
+        id: "t7",
+        title: "संख्या रेखा",
+        content:
+          "संख्या रेखा पर प्राकृतिक संख्याओं को समान दूरी पर बिंदुओं द्वारा दर्शाया जाता है। दाईं ओर बढ़ने पर संख्या का मान बढ़ता है।",
+        keyFact: "संख्या रेखा पर कोई भी संख्या अपने बाईं ओर की संख्या से बड़ी होती है।",
       },
     ],
     "c6-2": [
@@ -199,4 +245,3 @@ export const topicData = {
     ],
   },
 };
-

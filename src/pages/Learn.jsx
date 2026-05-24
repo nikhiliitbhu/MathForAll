@@ -138,15 +138,13 @@ export default function Learn() {
   const { lang, t } = useLanguage();
 
   const [selectedClassId, setSelectedClassId] = useState(mathClasses[0].id);
-  const [expandedChapterId, setExpandedChapterId] = useState(
-    mathClasses[0].chapters[0].id
-  );
-  const [selectedTopicId, setSelectedTopicId] = useState(null);
+  const [expandedChapterId, setExpandedChapterId] = useState(mathClasses[0].chapters[0].id);
   const [activeShape, setActiveShape] = useState(
     mathClasses[0].chapters[0].shapeType
   );
   const [activeTab, setActiveTab] = useState("overview");
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState(null);
 
   const selectedClass =
     mathClasses.find((c) => c.id === selectedClassId) || mathClasses[0];
@@ -158,9 +156,6 @@ export default function Learn() {
   const topics =
     (topicData?.[lang]?.[expandedChapterId] ?? topicData?.en?.[expandedChapterId] ?? []) ||
     [];
-
-  const selectedTopic = topics.find((tp) => tp.id === selectedTopicId) ||
-    null;
 
   // Formulas + quizzes (language-aware where available)
   const formulasAndQuizzes =
@@ -174,18 +169,38 @@ export default function Learn() {
     formulasAndQuizzes?.quizzes || selectedChapter.quizzes || [];
 
   useEffect(() => {
-    setSelectedTopicId(null);
     setActiveTab("overview");
     setActiveShape(selectedChapter.shapeType);
+    setActiveSection(topics[0]?.id || null);
   }, [expandedChapterId]);
 
   useEffect(() => {
     const firstChapter = selectedClass.chapters[0];
     setExpandedChapterId(firstChapter.id);
     setActiveShape(firstChapter.shapeType);
-    setSelectedTopicId(null);
     setActiveTab("overview");
   }, [selectedClassId]);
+
+  // Scroll Spy Logic
+  useEffect(() => {
+    if (activeTab !== "overview") return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: "-20% 0% -70% 0%", threshold: 0.1 }
+    );
+
+    const sections = document.querySelectorAll(".topic-section");
+    sections.forEach((section) => observer.observe(section));
+
+    return () => observer.disconnect();
+  }, [expandedChapterId, activeTab, topics]);
 
   const handleClassSelect = (classId) => {
     setSelectedClassId(classId);
@@ -277,12 +292,15 @@ export default function Learn() {
                             <button
                               key={topic.id}
                               onClick={() => {
-                                setSelectedTopicId(topic.id);
-                                setSidebarOpen(false);
                                 setActiveTab("overview");
+                                setSidebarOpen(false);
+                                setTimeout(() => {
+                                  const el = document.getElementById(topic.id);
+                                  if (el) el.scrollIntoView({ behavior: "smooth" });
+                                }, 100);
                               }}
                               className={`w-full flex items-center gap-2 px-3 py-2 rounded-lg text-left text-xs transition-all ${
-                                selectedTopicId === topic.id
+                                activeSection === topic.id
                                   ? "bg-primary text-primary-foreground font-medium"
                                   : "text-muted-foreground hover:bg-secondary hover:text-foreground"
                               }`}
@@ -335,18 +353,11 @@ export default function Learn() {
             </span>
             <ChevronRight className="h-3.5 w-3.5 shrink-0" />
             <span className="truncate">{selectedChapter.title}</span>
-            {selectedTopic && (
-              <>
-                <ChevronRight className="h-3.5 w-3.5 shrink-0" />
-                <span className="truncate text-foreground">
-                  {selectedTopic.title}
-                </span>
-              </>
-            )}
           </div>
         </div>
 
-        <div className="max-w-4xl mx-auto px-4 md:px-8 py-8 pb-24 space-y-8">
+        <div className="max-w-6xl mx-auto px-4 md:px-8 py-8 pb-24 flex gap-10">
+          <div className="flex-1 min-w-0 space-y-8">
           {/* Learn header actions */}
           <div className="hidden md:flex justify-end">
             <LearnLanguageSelect />
@@ -358,96 +369,19 @@ export default function Learn() {
             <span className="text-primary font-medium">{selectedClass.title}</span>
             <ChevronRight className="h-4 w-4 text-muted-foreground" />
             <span className="text-muted-foreground">{selectedChapter.title}</span>
-            {selectedTopic && (
-              <>
-                <ChevronRight className="h-4 w-4 text-muted-foreground" />
-                <span className="text-foreground font-medium">
-                  {selectedTopic.title}
-                </span>
-              </>
-            )}
           </div>
 
           {/* Chapter heading */}
           <div>
             <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground mb-2">
-              {selectedTopic ? selectedTopic.title : selectedChapter.title}
+              {selectedChapter.title}
             </h1>
             <p className="text-muted-foreground text-sm">
-              {selectedTopic
-                ? `${selectedClass.title} · ${selectedChapter.title}`
-                : `${selectedClass.title} · ${topics.length} topics · ${formulas.length} formulas · ${quizzes.length} quiz questions`}
+              {`${selectedClass.title} · ${topics.length} topics · ${formulas.length} formulas · ${quizzes.length} quiz questions`}
             </p>
           </div>
 
-          {/* Topic view */}
-          {selectedTopic ? (
-            <motion.div
-              key={selectedTopic.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3 }}
-              className="space-y-6"
-            >
-              <div className="bg-card border border-border rounded-2xl p-6 md:p-8 shadow-sm">
-                <p className="text-base md:text-lg text-foreground/85 leading-relaxed mb-6">
-                  {selectedTopic.content}
-                </p>
-                <div className="flex items-start gap-3 bg-primary/8 border border-primary/20 rounded-xl p-4">
-                  <Zap className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                  <div>
-                    <p className="text-xs font-semibold text-primary uppercase tracking-widest mb-1">
-                      {t.learn.keyFact}
-                    </p>
-                    <p className="text-sm text-foreground font-medium leading-relaxed">
-                      {selectedTopic.keyFact}
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div>
-                <p className="text-xs font-semibold text-muted-foreground uppercase tracking-widest mb-3">
-                  {t.learn.allTopicsInChapter}
-                </p>
-
-                <div className="grid sm:grid-cols-2 gap-2">
-                  {topics.map((tp, i) => (
-                    <button
-                      key={tp.id}
-                      onClick={() => setSelectedTopicId(tp.id)}
-                      className={`flex items-center gap-3 p-3.5 rounded-xl text-left border transition-all text-sm ${
-                        tp.id === selectedTopicId
-                          ? "border-primary/40 bg-primary/8 text-primary font-medium"
-                          : "border-border bg-card hover:bg-secondary text-foreground"
-                      }`}
-                    >
-                      <span
-                        className={`w-6 h-6 rounded-lg flex items-center justify-center text-xs font-bold shrink-0 ${
-                          tp.id === selectedTopicId
-                            ? "bg-primary text-primary-foreground"
-                            : "bg-secondary text-muted-foreground"
-                        }`}
-                      >
-                        {i + 1}
-                      </span>
-                      <span className="leading-snug">{tp.title}</span>
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              <Button
-                variant="outline"
-                className="gap-2 rounded-xl"
-                onClick={() => setSelectedTopicId(null)}
-              >
-                ← {t.learn.backToChapter}
-              </Button>
-            </motion.div>
-          ) : (
-            /* Chapter view */
-            <>
+          {/* Tab navigation */}
               <div className="flex gap-1 bg-secondary/60 p-1 rounded-2xl w-fit">
                 {tabs.map((tab) => (
                   <button
@@ -515,34 +449,38 @@ export default function Learn() {
                     </section>
 
                     <section className="space-y-4">
-                      <h2 className="text-xl font-bold border-b border-border pb-2 flex items-center gap-2">
-                        <Hash className="h-5 w-5 text-primary" />
-                        {t.learn.topicsInChapter}
-                      </h2>
-
-                      <div className="grid sm:grid-cols-2 gap-3">
+                      <div className="space-y-16">
                         {topics.map((topic, i) => (
-                          <motion.button
+                          <div
                             key={topic.id}
-                            initial={{ opacity: 0, y: 12 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: i * 0.07 }}
-                            onClick={() => setSelectedTopicId(topic.id)}
-                            className="group flex items-start gap-3 p-4 rounded-2xl bg-card border border-border hover:border-primary/40 hover:bg-primary/4 transition-all text-left shadow-sm"
+                            id={topic.id}
+                            className="topic-section scroll-mt-24 space-y-6"
                           >
-                            <span className="w-7 h-7 rounded-xl bg-primary/10 text-primary flex items-center justify-center text-xs font-bold shrink-0 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                              {i + 1}
-                            </span>
-                            <div className="min-w-0">
-                              <p className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors leading-snug">
+                            <div className="flex items-center gap-3">
+                              <div className="h-8 w-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center text-sm font-bold">
+                                {i + 1}
+                              </div>
+                              <h2 className="text-2xl font-bold text-foreground">
                                 {topic.title}
-                              </p>
-                              <p className="text-xs text-muted-foreground mt-1 line-clamp-2 leading-relaxed">
-                                {topic.content.slice(0, 80)}...
-                              </p>
+                              </h2>
                             </div>
-                            <ChevronRight className="h-4 w-4 text-muted-foreground shrink-0 mt-1 group-hover:text-primary transition-colors" />
-                          </motion.button>
+                            <div className="bg-card border border-border rounded-3xl p-6 md:p-8 shadow-sm">
+                              <p className="text-base md:text-lg text-foreground/85 leading-relaxed mb-6">
+                                {topic.content}
+                              </p>
+                              <div className="flex items-start gap-3 bg-primary/8 border border-primary/20 rounded-xl p-4">
+                                <Zap className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                                <div>
+                                  <p className="text-xs font-semibold text-primary uppercase tracking-widest mb-1">
+                                    {t.learn.keyFact}
+                                  </p>
+                                  <p className="text-sm text-foreground font-medium leading-relaxed">
+                                    {topic.keyFact}
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
                         ))}
                       </div>
                     </section>
@@ -657,11 +595,38 @@ export default function Learn() {
                   </motion.div>
                 )}
               </AnimatePresence>
-            </>
+          </div>
+
+          {/* Right Sidebar - On this Page Table of Contents */}
+          {activeTab === "overview" && (
+            <aside className="hidden xl:block w-56 flex-shrink-0 sticky top-24 h-fit max-h-[calc(100vh-8rem)] overflow-y-auto pr-2">
+              <div className="space-y-4">
+                <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-[0.2em] px-1">
+                  On this page
+                </p>
+                <nav className="flex flex-col space-y-1">
+                  {topics.map((topic) => (
+                    <button
+                      key={topic.id}
+                      onClick={() => {
+                        const el = document.getElementById(topic.id);
+                        if (el) el.scrollIntoView({ behavior: "smooth" });
+                      }}
+                      className={`text-left text-xs py-2 px-3 border-l-2 transition-all hover:bg-secondary/50 ${
+                        activeSection === topic.id
+                          ? "border-primary text-primary font-semibold bg-primary/5"
+                          : "border-border text-muted-foreground hover:border-muted-foreground/30"
+                      }`}
+                    >
+                      # {topic.title}
+                    </button>
+                  ))}
+                </nav>
+              </div>
+            </aside>
           )}
         </div>
       </main>
     </div>
   );
 }
-

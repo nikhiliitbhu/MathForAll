@@ -8,157 +8,97 @@ export const formulaData = {
     'class-6': {
       'c6-1': {
         formulas: [
-          { id: 'f1', title: 'Line Segment', expression: 'A straight line with two endpoints.' },
-          { id: 'f2', title: 'Angle', expression: 'Formed by two rays sharing a common endpoint.' },
-          { id: 'f3', title: 'Triangle', expression: 'A polygon with 3 edges and 3 vertices.' },
-          { id: 'f4', title: 'Quadrilateral', expression: 'A polygon with 4 edges and 4 vertices.' },
+          { id: 'f1', title: 'Successor', expression: 'n + 1' },
+          { id: 'f2', title: 'Predecessor', expression: 'n - 1' },
+          { id: 'f3', title: 'Expanded Form', expression: '432 = 400 + 30 + 2' },
         ],
         quizzes: [
           {
             id: 'q1',
-            question: 'How many endpoints does a line segment have?',
-            options: ['0', '1', '2', '3'],
-            correctAnswer: 2,
-            explanation: 'A line segment has exactly two endpoints.',
-          },
-          {
-            id: 'q2',
-            question: 'What is the sum of angles in a triangle?',
-            options: ['90°', '180°', '270°', '360°'],
+            question: 'What is the successor of 999?',
+            options: ['998', '1000', '1001', '990'],
             correctAnswer: 1,
-            explanation:
-              'The sum of interior angles of a triangle is always 180 degrees.',
+            explanation: 'Successor is obtained by adding 1: 999 + 1 = 1000.'
           },
         ],
       },
-      'c6-2': {
+      'c6-2': { formulas: [], quizzes: [] },
+      'c6-3': {
         formulas: [
-          { id: 'f1', title: 'Fraction', expression: 'Numerator / Denominator' },
-          { id: 'f2', title: 'Addition', expression: 'a/c + b/c = (a+b)/c' },
-          { id: 'f3', title: 'Multiplication', expression: '(a/b) × (c/d) = (ac)/(bd)' },
-          { id: 'f4', title: 'Division', expression: '(a/b) ÷ (c/d) = (a/b) × (d/c)' },
+          { id: 'f1', title: 'Integers', expression: 'Set of numbers: {..., -3, -2, -1, 0, 1, 2, 3, ...}' },
+          { id: 'f2', title: 'Absolute Value', expression: '|a| = a if a ≥ 0, -a if a < 0' },
         ],
         quizzes: [
           {
             id: 'q1',
-            question: 'What is 1/2 + 1/4?',
-            options: ['2/6', '3/4', '1/8', '2/4'],
+            question: 'What is the sum of -5 and 8?',
+            options: ['-13', '3', '-3', '13'],
             correctAnswer: 1,
-            explanation:
-              'Convert 1/2 to 2/4. Then 2/4 + 1/4 = 3/4.',
-          },
-          {
-            id: 'q2',
-            question: 'What is 0.5 as a fraction?',
-            options: ['1/5', '1/2', '5/100', '5/2'],
-            correctAnswer: 1,
-            explanation: '0.5 = 5/10 = 1/2.',
+            explanation: 'When signs are different, subtract the numbers and use the sign of the larger number: 8 - 5 = 3.'
           },
         ],
       },
-      'c6-5': {
-        formulas: [
-          { id: 'f1', title: 'Area of Rectangle', expression: 'A = l × w' },
-          { id: 'f2', title: 'Perimeter of Rectangle', expression: 'P = 2(l + w)' },
-          { id: 'f3', title: 'Area of Square', expression: 'A = s²' },
-          { id: 'f4', title: 'Perimeter of Square', expression: 'P = 4s' },
-        ],
-        quizzes: [
-          {
-            id: 'q1',
-            question: 'What is the area of a rectangle with length 5 and width 3?',
-            options: ['15', '16', '8', '30'],
-            correctAnswer: 0,
-            explanation: 'Area = length × width = 5 × 3 = 15.',
-          },
-          {
-            id: 'q2',
-            question: 'What is the perimeter of a square with side 4?',
-            options: ['8', '12', '16', '20'],
-            correctAnswer: 2,
-            explanation: 'Perimeter = 4 × side = 4 × 4 = 16.',
-          },
-        ],
-      },
+      'c6-4': { formulas: [], quizzes: [] },
+      'c6-5': { formulas: [], quizzes: [] },
+      'c6-6': { formulas: [], quizzes: [] },
+      'c6-7': { formulas: [], quizzes: [] },
+      'c6-8': { formulas: [], quizzes: [] },
+      'c6-9': { formulas: [], quizzes: [] },
+      'c6-10': { formulas: [], quizzes: [] },
+      'c6-11': { formulas: [], quizzes: [] },
+      'c6-12': { formulas: [], quizzes: [] },
+      'c6-13': { formulas: [], quizzes: [] },
+      'c6-14': { formulas: [], quizzes: [] },
     },
   },
 
   hi: {
     'class-6': {
       'c6-1': {
+        title: '1. प्राकृतिक संख्याएँ',
         formulas: [
-          { id: 'f1', title: 'रेखाखंड', expression: 'दो निश्चित सिरों वाला सीधा रेखा-खंड।' },
-          { id: 'f2', title: 'कोण', expression: 'एक सामान्य सिरे वाली दो किरणों से बना।' },
-          { id: 'f3', title: 'त्रिभुज', expression: '3 भुजाओं और 3 शीर्षों वाला बहुभुज।' },
-          { id: 'f4', title: 'चतुर्भुज', expression: '4 भुजाओं और 4 शीर्षों वाला बहुभुज।' },
+          { id: 'f1', title: 'अनुवर्ती (Successor)', expression: 'n + 1' },
+          { id: 'f2', title: 'पूर्ववर्ती (Predecessor)', expression: 'n - 1' },
+          { id: 'f3', title: 'विस्तारित रूप', expression: '432 = 400 + 30 + 2' },
         ],
         quizzes: [
           {
             id: 'q1',
-            question: 'रेखाखंड के कितने सिरे (endpoints) होते हैं?',
-            options: ['0', '1', '2', '3'],
-            correctAnswer: 2,
-            explanation: 'रेखाखंड के ठीक 2 सिरे होते हैं।',
-          },
-          {
-            id: 'q2',
-            question: 'त्रिभुज के कोणों का योग कितना होता है?',
-            options: ['90°', '180°', '270°', '360°'],
+            question: '999 की अनुवर्ती संख्या क्या है?',
+            options: ['998', '1000', '1001', '990'],
             correctAnswer: 1,
-            explanation: 'त्रिभुज के अंतःकोणों का योग हमेशा 180° होता है।',
+            explanation: 'अनुवर्ती संख्या 1 जोड़ने पर प्राप्त होती है: 999 + 1 = 1000।'
           },
         ],
       },
-      'c6-2': {
+      'c6-2': { title: '2. पूर्ण संख्याएँ', formulas: [], quizzes: [] },
+      'c6-3': {
+        title: '3. पूर्णांक',
         formulas: [
-          { id: 'f1', title: 'भिन्न', expression: 'अंश / हर' },
-          { id: 'f2', title: 'जोड़', expression: 'a/c + b/c = (a+b)/c' },
-          { id: 'f3', title: 'गुणा', expression: '(a/b) × (c/d) = (ac)/(bd)' },
-          { id: 'f4', title: 'भाग', expression: '(a/b) ÷ (c/d) = (a/b) × (d/c)' },
+          { id: 'f1', title: 'पूर्णांक', expression: 'संख्याओं का समूह: {..., -3, -2, -1, 0, 1, 2, 3, ...}' },
+          { id: 'f2', title: 'निरपेक्ष मान', expression: '|a| = a यदि a ≥ 0, -a यदि a < 0' },
         ],
         quizzes: [
           {
             id: 'q1',
-            question: '1/2 + 1/4 कितना होगा?',
-            options: ['2/6', '3/4', '1/8', '2/4'],
+            question: '-5 और 8 का योग क्या है?',
+            options: ['-13', '3', '-3', '13'],
             correctAnswer: 1,
-            explanation:
-              '1/2 को 2/4 में बदलें। फिर 2/4 + 1/4 = 3/4।',
-          },
-          {
-            id: 'q2',
-            question: '0.5 को भिन्न में लिखिए।',
-            options: ['1/5', '1/2', '5/100', '5/2'],
-            correctAnswer: 1,
-            explanation: '0.5 = 5/10 = 1/2।',
+            explanation: 'जब चिह्न अलग-अलग हों, तो संख्याओं को घटाएं और बड़ी संख्या का चिह्न लगाएं: 8 - 5 = 3।'
           },
         ],
       },
-      'c6-5': {
-        formulas: [
-          { id: 'f1', title: 'आयत का क्षेत्रफल', expression: 'A = l × w' },
-          { id: 'f2', title: 'आयत का परिमाप', expression: 'P = 2(l + w)' },
-          { id: 'f3', title: 'वर्ग का क्षेत्रफल', expression: 'A = s²' },
-          { id: 'f4', title: 'वर्ग का परिमाप', expression: 'P = 4s' },
-        ],
-        quizzes: [
-          {
-            id: 'q1',
-            question: 'लंबाई 5 और चौड़ाई 3 वाली आयत का क्षेत्रफल कितना है?',
-            options: ['15', '16', '8', '30'],
-            correctAnswer: 0,
-            explanation: 'क्षेत्रफल = लंबाई × चौड़ाई = 5 × 3 = 15।',
-          },
-          {
-            id: 'q2',
-            question: 'भुजा 4 वाले वर्ग का परिमाप कितना है?',
-            options: ['8', '12', '16', '20'],
-            correctAnswer: 2,
-            explanation: 'परिमाप = 4 × भुजा = 4 × 4 = 16।',
-          },
-        ],
-      },
+      'c6-4': { title: '4. सांख्यिकी', formulas: [], quizzes: [] },
+      'c6-5': { title: '5. बीजगणित की अवधारणा', formulas: [], quizzes: [] },
+      'c6-6': { title: '6. बीजीय व्यंजक', formulas: [], quizzes: [] },
+      'c6-7': { title: '7. ज्यामितीय अवधारणाएँ', formulas: [], quizzes: [] },
+      'c6-8': { title: '8. कोण', formulas: [], quizzes: [] },
+      'c6-9': { title: '9. त्रिभुज', formulas: [], quizzes: [] },
+      'c6-10': { title: '10. ज्यामितीय रचनाएँ', formulas: [], quizzes: [] },
+      'c6-11': { title: '11. सममिति', formulas: [], quizzes: [] },
+      'c6-12': { title: '12. परिमाप और क्षेत्रफल', formulas: [], quizzes: [] },
+      'c6-13': { title: '13. अनुपात, एकिक नियम और प्रतिशत', formulas: [], quizzes: [] },
+      'c6-14': { title: '14. आंकड़ों का प्रबंधन', formulas: [], quizzes: [] },
     },
   },
 };
-

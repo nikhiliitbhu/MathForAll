@@ -3,106 +3,88 @@ export const mathClasses = [{
   title: "Class 6",
   chapters: [{
     id: "c6-1",
-    title: "Basic Geometry",
+    title: "1. Natural Numbers",
     shapeType: "cube",
-    formulas: [{
-      id: "f1",
-      title: "Line Segment",
-      expression: "A straight line with two endpoints."
-    }, {
-      id: "f2",
-      title: "Angle",
-      expression: "Formed by two rays sharing a common endpoint."
-    }, {
-      id: "f3",
-      title: "Triangle",
-      expression: "A polygon with 3 edges and 3 vertices."
-    }, {
-      id: "f4",
-      title: "Quadrilateral",
-      expression: "A polygon with 4 edges and 4 vertices."
-    }],
-    quizzes: [{
-      id: "q1",
-      question: "How many endpoints does a line segment have?",
-      options: ["0", "1", "2", "3"],
-      correctAnswer: 2,
-      explanation: "A line segment has exactly two endpoints."
-    }, {
-      id: "q2",
-      question: "What is the sum of angles in a triangle?",
-      options: ["90°", "180°", "270°", "360°"],
-      correctAnswer: 1,
-      explanation: "The sum of interior angles of a triangle is always 180 degrees."
-    }]
+    formulas: [],
+    quizzes: []
   }, {
     id: "c6-2",
-    title: "Fractions",
-    shapeType: "icosahedron",
-    formulas: [{
-      id: "f1",
-      title: "Fraction",
-      expression: "Numerator / Denominator"
-    }, {
-      id: "f2",
-      title: "Addition",
-      expression: "a/c + b/c = (a+b)/c"
-    }, {
-      id: "f3",
-      title: "Multiplication",
-      expression: "(a/b) × (c/d) = (ac)/(bd)"
-    }, {
-      id: "f4",
-      title: "Division",
-      expression: "(a/b) ÷ (c/d) = (a/b) × (d/c)"
-    }],
-    quizzes: [{
-      id: "q1",
-      question: "What is 1/2 + 1/4?",
-      options: ["2/6", "3/4", "1/8", "2/4"],
-      correctAnswer: 1,
-      explanation: "Convert 1/2 to 2/4. Then 2/4 + 1/4 = 3/4."
-    }, {
-      id: "q2",
-      question: "What is 0.5 as a fraction?",
-      options: ["1/5", "1/2", "5/100", "5/2"],
-      correctAnswer: 1,
-      explanation: "0.5 = 5/10 = 1/2."
-    }]
+    title: "2. Whole Numbers",
+    shapeType: "sphere",
+    formulas: [],
+    quizzes: []
+  }, {
+    id: "c6-3",
+    title: "3. Integers",
+    shapeType: "torus",
+    formulas: [],
+    quizzes: []
+  }, {
+    id: "c6-4",
+    title: "4. Statistics",
+    shapeType: "cylinder",
+    formulas: [],
+    quizzes: []
   }, {
     id: "c6-5",
-    title: "Mensuration 2D",
+    title: "5. Concept of Algebra",
+    shapeType: "cube",
+    formulas: [],
+    quizzes: []
+  }, {
+    id: "c6-6",
+    title: "6. Algebraic Expressions",
+    shapeType: "cone",
+    formulas: [],
+    quizzes: []
+  }, {
+    id: "c6-7",
+    title: "7. Geometrical Concepts",
+    shapeType: "sphere",
+    formulas: [],
+    quizzes: []
+  }, {
+    id: "c6-8",
+    title: "8. Angles",
+    shapeType: "torus",
+    formulas: [],
+    quizzes: []
+  }, {
+    id: "c6-9",
+    title: "9. Triangles",
+    shapeType: "cone",
+    formulas: [],
+    quizzes: []
+  }, {
+    id: "c6-10",
+    title: "10. Geometrical Constructions (Using Ruler and Compass)",
     shapeType: "cylinder",
-    formulas: [{
-      id: "f1",
-      title: "Area of Rectangle",
-      expression: "A = l × w"
-    }, {
-      id: "f2",
-      title: "Perimeter of Rectangle",
-      expression: "P = 2(l + w)"
-    }, {
-      id: "f3",
-      title: "Area of Square",
-      expression: "A = s²"
-    }, {
-      id: "f4",
-      title: "Perimeter of Square",
-      expression: "P = 4s"
-    }],
-    quizzes: [{
-      id: "q1",
-      question: "What is the area of a rectangle with length 5 and width 3?",
-      options: ["15", "16", "8", "30"],
-      correctAnswer: 0,
-      explanation: "Area = length × width = 5 × 3 = 15."
-    }, {
-      id: "q2",
-      question: "What is the perimeter of a square with side 4?",
-      options: ["8", "12", "16", "20"],
-      correctAnswer: 2,
-      explanation: "Perimeter = 4 × side = 4 × 4 = 16."
-    }]
+    formulas: [],
+    quizzes: []
+  }, {
+    id: "c6-11",
+    title: "11. Symmetry",
+    shapeType: "icosahedron",
+    formulas: [],
+    quizzes: []
+  }, {
+    id: "c6-12",
+    title: "12. Perimeter and Area",
+    shapeType: "cube",
+    formulas: [],
+    quizzes: []
+  }, {
+    id: "c6-13",
+    title: "13. Ratio, Unitary Method, and Percentage",
+    shapeType: "sphere",
+    formulas: [],
+    quizzes: []
+  }, {
+    id: "c6-14",
+    title: "14. Data Handling",
+    shapeType: "torus",
+    formulas: [],
+    quizzes: []
   }]
 }, {
   id: "class-7",
@@ -519,4 +501,3 @@ export const mathClasses = [{
     }]
   }]
 }];
-

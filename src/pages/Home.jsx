@@ -911,13 +911,15 @@ export default function Home() {
             children: [/*#__PURE__*/_jsxs("div", {
               className: "flex items-center gap-2 font-bold font-display text-foreground mb-4",
               children: [/*#__PURE__*/_jsx("div", {
-                className: "h-9 w-9 rounded-xl bg-gradient-to-br from-primary to-fuchsia-600 flex items-center justify-center shadow-lg shadow-primary/30",
-                children: /*#__PURE__*/_jsx(Pi, {
-                  className: "h-5 w-5 text-white"
-                })
+                src: "/logo.png",
+                alt: "Mathrix logo",
+                className: "h-9 w-9 rounded-xl object-contain bg-transparent",
+                draggable: false
               }), /*#__PURE__*/_jsx("span", {
-                className: "text-xl",
-                children: "Mathrix"
+                className:
+                  "text-2xl font-bold font-display tracking-tight text-foreground -ml-2 text-transparent bg-clip-text bg-gradient-to-r from-[#8B26EF] to-[#E317E3] font-bold",
+                children: "athrix",
+
               })]
             }), /*#__PURE__*/_jsx("p", {
               className: "text-sm text-muted-foreground leading-relaxed mb-6 max-w-xs",

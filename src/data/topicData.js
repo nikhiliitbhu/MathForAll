@@ -122,6 +122,88 @@ export const topicData = {
           "Doubling the radius quadruples the area (because r is squared).",
       },
     ],
+    "c10-1": [
+      {
+        id: "t1",
+        title: "Introduction to Real Numbers",
+        content: "Real numbers include both rational and irrational numbers. This chapter explores the properties of integers and the nature of numbers.",
+        keyFact: "Every real number can be represented on a number line."
+      },
+      {
+        id: "t2",
+        title: "The Fundamental Theorem of Arithmetic",
+        content: "Every composite number can be expressed as a product of primes, and this factorization is unique, apart from the order in which the prime factors occur.",
+        keyFact: "HCF(a, b) × LCM(a, b) = a × b."
+      },
+      {
+        id: "t3",
+        title: "Revisiting Irrational Numbers",
+        content: "This topic proves why numbers like √2, √3, and √5 are irrational using the method of contradiction.",
+        keyFact: "A number is irrational if it cannot be written in p/q form."
+      }
+    ],
+    "c10-2": [
+      {
+        id: "t1",
+        title: "Introduction to Polynomials",
+        content: "A polynomial is an expression consisting of variables and coefficients. The degree of the polynomial is the highest power of the variable.",
+        keyFact: "A linear polynomial has degree 1, quadratic has degree 2, and cubic has degree 3."
+      },
+      {
+        id: "t2",
+        title: "Geometrical Meaning of the Zeroes",
+        content: "The zeroes of a polynomial p(x) are the x-coordinates of the points where the graph of y = p(x) intersects the x-axis.",
+        keyFact: "A quadratic polynomial graph is a parabola."
+      },
+      {
+        id: "t3",
+        title: "Zeroes and Coefficients Relationship",
+        content: "For a quadratic polynomial ax² + bx + c, the sum of zeroes (α+β) = -b/a and the product (αβ) = c/a.",
+        keyFact: "The relationship helps in verifying the zeroes of a polynomial."
+      }
+    ],
+    "c10-3": [
+      {
+        id: "t1",
+        title: "Introduction to Linear Equations",
+        content: "Two linear equations in the same two variables are called a pair of linear equations in two variables.",
+        keyFact: "The general form is a1x + b1y + c1 = 0 and a2x + b2y + c2 = 0."
+      },
+      {
+        id: "t2",
+        title: "Graphical Method of Solution",
+        content: "The solution is the point where the two lines intersect. If they are parallel, there is no solution. If they coincide, there are infinite solutions.",
+        keyFact: "Intersecting lines mean a unique solution."
+      },
+      {
+        id: "t3",
+        title: "Algebraic Methods: Substitution & Elimination",
+        content: "Substitution involves expressing one variable in terms of another. Elimination involves adding or subtracting equations to remove one variable.",
+        keyFact: "Elimination is often faster for complex coefficients."
+      }
+    ],
+    "c10-4": [
+      {
+        id: "t1",
+        title: "Quadratic Equations",
+        content: "A quadratic equation in the variable x is an equation of the form ax² + bx + c = 0, where a ≠ 0.",
+        keyFact: "Any equation of degree 2 is a quadratic equation."
+      },
+      {
+        id: "t2",
+        title: "Nature of Roots",
+        content: "The nature of roots depends on the discriminant D = b² - 4ac. If D > 0, roots are real and distinct; if D = 0, real and equal; if D < 0, no real roots.",
+        keyFact: "D helps determine the solution type without solving the equation."
+      }
+    ],
+    "c10-5": [
+      {
+        id: "t1",
+        title: "Introduction to Arithmetic Progressions",
+        content: "An Arithmetic Progression (AP) is a list of numbers in which each term is obtained by adding a fixed number to the preceding term.",
+        keyFact: "The fixed number is called the common difference 'd'."
+      }
+    ]
   },
 
   hi: {

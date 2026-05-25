@@ -1,5 +1,5 @@
 // Formula data for Learn page (EN + HI)
-// Currently only the formulas/questions for Class 6 are present in both languages.
+// Currently only theq formulas/questions for Class 6 are present in both languages.
 // Other classes/chapter formulas remain available from mathClasses in src/data/mathData.js (EN).
 
 export const formulaData = {
@@ -50,6 +50,13 @@ export const formulaData = {
       'c6-13': { formulas: [], quizzes: [] },
       'c6-14': { formulas: [], quizzes: [] },
     },
+    'class-10': {
+      'c10-1': { formulas: [], quizzes: [] },
+      'c10-2': { formulas: [], quizzes: [] },
+      'c10-3': { formulas: [], quizzes: [] },
+      'c10-4': { formulas: [], quizzes: [] },
+      'c10-5': { formulas: [], quizzes: [] },
+    }
   },
 
   hi: {
@@ -100,5 +107,12 @@ export const formulaData = {
       'c6-13': { title: '13. अनुपात, एकिक नियम और प्रतिशत', formulas: [], quizzes: [] },
       'c6-14': { title: '14. आंकड़ों का प्रबंधन', formulas: [], quizzes: [] },
     },
+    'class-10': {
+      'c10-1': { title: '1. वास्तविक संख्याएँ', formulas: [], quizzes: [] },
+      'c10-2': { title: '2. बहुपद', formulas: [], quizzes: [] },
+      'c10-3': { title: '3. दो चर वाले रैखिक समीकरण युग्म', formulas: [], quizzes: [] },
+      'c10-4': { title: '4. द्विघात समीकरण', formulas: [], quizzes: [] },
+      'c10-5': { title: '5. समांतर श्रेढ़ियाँ', formulas: [], quizzes: [] },
+    }
   },
 };

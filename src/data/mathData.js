@@ -300,9 +300,27 @@ export const mathClasses = [{
   id: "class-10",
   title: "Class 10",
   chapters: [{
-    id: "c10-3",
-    title: "Quadratic Equations",
+    id: "c10-1",
+    title: "1. Real Numbers",
     shapeType: "icosahedron",
+    formulas: [],
+    quizzes: []
+  }, {
+    id: "c10-2",
+    title: "2. Polynomials",
+    shapeType: "sphere",
+    formulas: [],
+    quizzes: []
+  }, {
+    id: "c10-3",
+    title: "3. Pair of Linear Equations in Two Variables",
+    shapeType: "cylinder",
+    formulas: [],
+    quizzes: []
+  }, {
+    id: "c10-4",
+    title: "Quadratic Equations",
+    shapeType: "cube",
     formulas: [{
       id: "f1",
       title: "Standard Form",
@@ -335,7 +353,13 @@ export const mathClasses = [{
     }]
   }, {
     id: "c10-5",
-    title: "Trigonometry",
+    title: "5. Arithmetic Progressions",
+    shapeType: "torus",
+    formulas: [],
+    quizzes: []
+  }, {
+    id: "c10-6",
+    title: "6. Trigonometry",
     shapeType: "torus",
     formulas: [{
       id: "f1",

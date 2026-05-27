@@ -203,6 +203,36 @@ export const topicData = {
         content: "An Arithmetic Progression (AP) is a list of numbers in which each term is obtained by adding a fixed number to the preceding term.",
         keyFact: "The fixed number is called the common difference 'd'."
       }
+    ],
+    "c10-6": [
+      {
+        id: "t1",
+        title: "Similarity & Visualization",
+        diagram: `<svg viewBox="0 0 300 120" class="w-full max-w-[400px] mx-auto bg-secondary/10 rounded-2xl p-4"><g stroke="currentColor" stroke-width="2" fill="none"><path d="M50 20 L20 100 L110 100 Z"/><path d="M220 40 L200 90 L260 90 Z"/></g><text x="45" y="15" class="fill-foreground text-[10px]">A</text><text x="10" y="110" class="fill-foreground text-[10px]">B</text><text x="115" y="110" class="fill-foreground text-[10px]">C</text><text x="215" y="35" class="fill-primary text-[10px]">P</text><text x="190" y="100" class="fill-primary text-[10px]">Q</text><text x="265" y="100" class="fill-primary text-[10px]">R</text><text x="140" y="70" class="fill-muted-foreground text-xl">~</text></svg>`,
+        content: "Similar triangles have the same shape but different sizes. Use the 3D Icosahedron above to see how multiple triangular faces interact and maintain their proportions in space.",
+        keyFact: "All equilateral triangles are similar, regardless of their size."
+      },
+      {
+        id: "t2",
+        title: "Thales Theorem (BPT)",
+        diagram: `<svg viewBox="0 0 200 150" class="w-full max-w-[300px] mx-auto bg-secondary/20 rounded-xl p-4"><path d="M100 20 L40 130 L160 130 Z" fill="none" stroke="currentColor" stroke-width="2"/><line x1="60" y1="90" x2="140" y2="90" stroke="var(--primary)" stroke-width="2" stroke-dasharray="4"/><text x="95" y="15" class="fill-foreground text-xs">A</text><text x="30" y="140" class="fill-foreground text-xs">B</text><text x="165" y="140" class="fill-foreground text-xs">C</text><text x="45" y="95" class="fill-primary text-xs font-bold">D</text><text x="145" y="95" class="fill-primary text-xs font-bold">E</text></svg>`,
+        content: "If a line is drawn parallel to one side of a triangle, it divides the other two sides proportionally. Visualize this as a 'slice' through the triangle that creates a smaller, similar triangle at the top.",
+        keyFact: "If DE || BC, then AD/DB = AE/EC."
+      },
+      {
+        id: "t3",
+        title: "Criteria for Similarity",
+        diagram: `<svg viewBox="0 0 200 100" class="w-full max-w-[300px] mx-auto bg-secondary/10 rounded-2xl p-4"><path d="M40 20 L10 80 L90 80 Z" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M150 35 L130 75 L190 75 Z" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M40 30 A 10 10 0 0 1 35 25" fill="none" stroke="var(--primary)" stroke-width="2"/><path d="M150 45 A 10 10 0 0 1 145 40" fill="none" stroke="var(--primary)" stroke-width="2"/><text x="90" y="55" class="fill-foreground font-bold text-xs">AAA</text></svg>`,
+        content: "Triangles are similar if they satisfy AAA (Angles are equal), SSS (Sides are proportional), or SAS (Two sides proportional and included angle equal).",
+        keyFact: "In similarity, the ratio of areas is the square of the ratio of sides."
+      },
+      {
+        id: "t4",
+        title: "Pythagoras Theorem",
+        diagram: `<svg viewBox="0 0 200 150" class="w-full max-w-[300px] mx-auto bg-secondary/20 rounded-xl p-4"><path d="M50 20 L50 120 L150 120 Z" fill="none" stroke="currentColor" stroke-width="2"/><rect x="50" y="110" width="10" height="10" fill="none" stroke="currentColor" stroke-width="1"/><text x="45" y="15" class="fill-foreground text-xs">A</text><text x="40" y="130" class="fill-foreground text-xs">B</text><text x="155" y="130" class="fill-foreground text-xs">C</text><text x="35" y="70" class="fill-muted-foreground text-[10px]">p</text><text x="100" y="135" class="fill-muted-foreground text-[10px]">b</text><text x="110" y="65" class="fill-primary text-[10px] font-bold">h</text></svg>`,
+        content: "In a right-angled triangle, the square of the hypotenuse is equal to the sum of squares of the other two sides. This is a fundamental result in Euclidean geometry.",
+        keyFact: "Used for calculating distances and diagonal lengths in 2D and 3D shapes."
+      }
     ]
   },
 
@@ -325,5 +355,34 @@ export const topicData = {
           "त्रिज्या को दोगुना करने पर क्षेत्रफल चार गुना हो जाता है (क्योंकि r² होता है)।",
       },
     ],
+    "c10-6": [
+      {
+        id: "t1",
+        title: "समरूपता और विज़ुअलाइज़ेशन",
+        diagram: `<svg viewBox="0 0 300 120" class="w-full max-w-[400px] mx-auto bg-secondary/10 rounded-2xl p-4"><g stroke="currentColor" stroke-width="2" fill="none"><path d="M50 20 L20 100 L110 100 Z"/><path d="M220 40 L200 90 L260 90 Z"/></g><text x="45" y="15" class="fill-foreground text-[10px]">A</text><text x="10" y="110" class="fill-foreground text-[10px]">B</text><text x="115" y="110" class="fill-foreground text-[10px]">C</text><text x="215" y="35" class="fill-primary text-[10px]">P</text><text x="190" y="100" class="fill-primary text-[10px]">Q</text><text x="265" y="100" class="fill-primary text-[10px]">R</text><text x="140" y="70" class="fill-muted-foreground text-xl">~</text></svg>`,
+        content: "समरूप त्रिभुजों का आकार एक जैसा होता है लेकिन उनकी माप अलग हो सकती है। ऊपर दिए गए 3D मॉडल को घुमाकर देखें कि कैसे विभिन्न त्रिभुजाकार सतहें एक-दूसरे के समानुपाती रहती हैं।",
+        keyFact: "सभी समबाहु त्रिभुज समरूप होते हैं।"
+      },
+      {
+        id: "t2",
+        title: "आधारभूत आनुपातिकता प्रमेय (थेल्स प्रमेय)",
+        diagram: `<svg viewBox="0 0 200 150" class="w-full max-w-[300px] mx-auto bg-secondary/20 rounded-xl p-4"><path d="M100 20 L40 130 L160 130 Z" fill="none" stroke="currentColor" stroke-width="2"/><line x1="60" y1="90" x2="140" y2="90" stroke="var(--primary)" stroke-width="2" stroke-dasharray="4"/><text x="95" y="15" class="fill-foreground text-xs">A</text><text x="30" y="140" class="fill-foreground text-xs">B</text><text x="165" y="140" class="fill-foreground text-xs">C</text><text x="45" y="95" class="fill-primary text-xs font-bold">D</text><text x="145" y="95" class="fill-primary text-xs font-bold">E</text></svg>`,
+        content: "यदि किसी त्रिभुज की एक भुजा के समांतर एक रेखा खींची जाए, तो वह अन्य दो भुजाओं को समान अनुपात में विभाजित करती है। इसे एक त्रिभुज के अंदर खींची गई एक समांतर 'काट' के रूप में समझें।",
+        keyFact: "यदि DE || BC है, तो AD/DB = AE/EC।"
+      },
+      {
+        id: "t3",
+        title: "त्रिभुजों की समरूपता की कसौटियाँ",
+        content: "त्रिभुज तब समरूप होते हैं जब वे AAA (कोण बराबर हों), SSS (भुजाएँ समानुपाती हों), या SAS (दो भुजाएँ समानुपाती और उनके बीच का कोण बराबर हो) नियमों का पालन करें।",
+        keyFact: "समरूप त्रिभुजों के क्षेत्रफलों का अनुपात उनकी संगत भुजाओं के वर्गों के अनुपात के बराबर होता है।"
+      },
+      {
+        id: "t4",
+        title: "पाइथागोरस प्रमेय",
+        diagram: `<svg viewBox="0 0 200 150" class="w-full max-w-[300px] mx-auto bg-secondary/20 rounded-xl p-4"><path d="M50 20 L50 120 L150 120 Z" fill="none" stroke="currentColor" stroke-width="2"/><rect x="50" y="110" width="10" height="10" fill="none" stroke="currentColor" stroke-width="1"/><text x="45" y="15" class="fill-foreground text-xs">A</text><text x="40" y="130" class="fill-foreground text-xs">B</text><text x="155" y="130" class="fill-foreground text-xs">C</text><text x="35" y="70" class="fill-muted-foreground text-[10px]">p</text><text x="100" y="135" class="fill-muted-foreground text-[10px]">b</text><text x="110" y="65" class="fill-primary text-[10px] font-bold">h</text></svg>`,
+        content: "एक समकोण त्रिभुज में, कर्ण का वर्ग अन्य दो भुजाओं के वर्गों के योग के बराबर होता है। यह ज्यामिति का सबसे महत्वपूर्ण सिद्धांत है।",
+        keyFact: "इसका उपयोग 2D और 3D आकृतियों में दूरी निकालने के लिए किया जाता है।"
+      }
+    ]
   },
 };

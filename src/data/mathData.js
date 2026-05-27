@@ -359,7 +359,25 @@ export const mathClasses = [{
     quizzes: []
   }, {
     id: "c10-6",
-    title: "6. Trigonometry",
+    title: "6. Triangles (त्रिभुज)",
+    shapeType: "icosahedron",
+    formulas: [
+      { id: "f1", title: "Thales Theorem (BPT)", expression: "AD/DB = AE/EC" },
+      { id: "f2", title: "Similarity", expression: "ΔABC ~ ΔDEF" },
+      { id: "f3", title: "Pythagoras", expression: "AC² = AB² + BC²" }
+    ],
+    quizzes: [
+      {
+        id: "q1",
+        question: "In ΔABC, DE || BC. If AD=2, DB=3, AE=4, find EC.",
+        options: ["5", "6", "8", "10"],
+        correctAnswer: 1,
+        explanation: "By BPT: AD/DB = AE/EC => 2/3 = 4/EC => EC = 6."
+      }
+    ]
+  }, {
+    id: "c10-8",
+    title: "8. Trigonometry",
     shapeType: "torus",
     formulas: [{
       id: "f1",

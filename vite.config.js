@@ -16,4 +16,5 @@ export default defineConfig({
   build: {
     outDir: "dist",
   },
+  // server: proxy wala block bilkul mat rakho
 });

@@ -16,5 +16,17 @@ export default defineConfig({
   build: {
     outDir: "dist",
   },
-  // server: proxy wala block bilkul mat rakho
+  server: {
+    proxy: {
+      "/ncert-pdf": {
+        target: "https://ncert.nic.in",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/ncert-pdf/, ""),
+        headers: {
+          Referer: "https://ncert.nic.in/textbook.php",
+          "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        },
+      },
+    },
+  },
 });

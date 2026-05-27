@@ -345,12 +345,9 @@ export default function Learn() {
         {/* Mobile top bar */}
         <div className="sticky top-0 z-20 md:hidden flex items-center gap-3 px-4 py-3 bg-background/95 backdrop-blur border-b border-border">
           <button
-            onClick={() => setSidebarOpen(true)}
-            className="p-2 rounded-xl hover:bg-secondary transition-colors"
             onClick={() => setSidebarOpen(!sidebarOpen)}
             className="p-2 rounded-xl hover:bg-secondary transition-colors relative z-50"
           >
-            <Menu className="h-5 w-5" />
             {sidebarOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
           <div className="flex items-center gap-1.5 text-sm text-muted-foreground min-w-0">
@@ -610,8 +607,9 @@ export default function Learn() {
                 {/* NCERT Book View */}
                 {activeTab === "book" && (
                   <BookView
-                    key={`book-${selectedClassId}`}
+                    key={`book-${selectedClassId}-${expandedChapterId}`}
                     classId={selectedClassId}
+                    chapterId={expandedChapterId}
                     lang={lang}
                   />
                 )}

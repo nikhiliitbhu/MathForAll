@@ -2,6 +2,7 @@ import heroImage from "../assets/hero-img.png";
 import { useLocation } from "wouter";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLoading } from "@/context/LoadingContext";
 import { ArrowRight, BookOpen, Shapes, BrainCircuit, CheckCircle2, Play, Star, Zap, Trophy, Users, ChevronRight, Calculator, Pi, Sigma, Infinity, Mail, Github, Twitter, Youtube, GraduationCap, FlaskConical, Lightbulb, Globe, RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThreeScene } from "@/components/ThreeScene";
@@ -211,7 +212,16 @@ const fadeUp = {
 };
 export default function Home() {
   const [, setLocation] = useLocation();
+  const { startLoading } = useLoading();
   const [activeShape, setActiveShape] = useState("cube");
+
+  const handleStartLearning = () => {
+    startLoading("/learn");
+  };
+
+  const handleViewSyllabus = () => {
+    startLoading("/learn");
+  };
   return /*#__PURE__*/_jsxs("div", {
     className: "flex flex-col",
     children: [/*#__PURE__*/_jsx("main", {
@@ -254,7 +264,7 @@ export default function Home() {
               size: "lg",
               "data-testid": "button-start-learning",
               className: "w-full sm:w-auto text-base h-12 md:h-14 px-8 rounded-full shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all hover:-translate-y-1",
-              onClick: () => setLocation("/learn"),
+              onClick: handleStartLearning,
               children: ["Start Learning Now", /*#__PURE__*/_jsx(ArrowRight, {
                 className: "ml-2 h-4 w-4 md:h-5 md:w-5"
               })]
@@ -262,7 +272,7 @@ export default function Home() {
               size: "lg",
               variant: "outline",
               "data-testid": "button-view-syllabus",
-              onClick: () => setLocation("/learn"),
+              onClick: handleViewSyllabus,
               className: "w-full sm:w-auto text-base h-12 md:h-14 px-8 rounded-full",
               children: [/*#__PURE__*/_jsx(Play, {
                 className: "mr-2 h-4 w-4 fill-current"

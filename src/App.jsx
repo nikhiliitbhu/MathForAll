@@ -5,6 +5,9 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { Navbar } from "@/components/Navbar";
 import { LanguageProvider } from "@/components/LanguageProvider";
+import { LoadingProvider } from "@/context/LoadingContext";
+import { LoadingScreen } from "@/components/LoadingScreen";
+import { AppInitializer } from "@/components/AppInitializer";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
 import Learn from "@/pages/Learn";
@@ -28,20 +31,22 @@ function Router() {
   });
 }
 function App() {
-  return /*#__PURE__*/_jsx(ThemeProvider, {
-    defaultTheme: "system",
-    storageKey: "mathslab-theme",
-    children: /*#__PURE__*/_jsx(LanguageProvider, {
-      children: /*#__PURE__*/_jsx(QueryClientProvider, {
-        client: queryClient,
-        children: /*#__PURE__*/_jsxs(TooltipProvider, {
-          children: [/*#__PURE__*/_jsx("div", {
-            className: "min-h-screen bg-background font-sans",
-            children: /*#__PURE__*/_jsxs(WouterRouter, {
-              base: import.meta.env.BASE_URL.replace(/\/$/, ""),
-              children: [/*#__PURE__*/_jsx(Navbar, {}), /*#__PURE__*/_jsx(Router, {})]
-            })
-          }), /*#__PURE__*/_jsx(Toaster, {})]
+  return /*#__PURE__*/_jsx(LoadingProvider, {
+    children: /*#__PURE__*/_jsx(ThemeProvider, {
+      defaultTheme: "system",
+      storageKey: "mathslab-theme",
+      children: /*#__PURE__*/_jsx(LanguageProvider, {
+        children: /*#__PURE__*/_jsx(QueryClientProvider, {
+          client: queryClient,
+          children: /*#__PURE__*/_jsxs(TooltipProvider, {
+            children: [/*#__PURE__*/_jsx(AppInitializer, {}), /*#__PURE__*/_jsx(LoadingScreen, {}), /*#__PURE__*/_jsx("div", {
+              className: "min-h-screen bg-background font-sans",
+              children: /*#__PURE__*/_jsxs(WouterRouter, {
+                base: import.meta.env.BASE_URL.replace(/\/$/, ""),
+                children: [/*#__PURE__*/_jsx(Navbar, {}), /*#__PURE__*/_jsx(Router, {})]
+              })
+            }), /*#__PURE__*/_jsx(Toaster, {})]
+          })
         })
       })
     })

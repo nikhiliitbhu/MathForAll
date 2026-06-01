@@ -18,6 +18,7 @@ import {
 import { useTheme } from "./ThemeProvider";
 import { Button } from "./ui/button";
 import { useLanguage } from "./LanguageProvider";
+import { useLoading } from "@/context/LoadingContext";
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 
 const classes = ["6", "7", "8", "9", "10", "11", "12"];
@@ -72,6 +73,7 @@ export function Navbar() {
   const [location, setLocation] = useLocation();
   const { theme, setTheme } = useTheme();
   const { setLanguage, t } = useLanguage();
+  const { startLoading } = useLoading();
 
   const [mobileOpen, setMobileOpen] = useState(false);
   const [classesOpen, setClassesOpen] = useState(false);
@@ -303,7 +305,7 @@ export function Navbar() {
                 "data-testid": "nav-cta-btn",
                 className:
                   "hidden md:flex h-9 px-4 rounded-full text-xs font-semibold shadow-md shadow-primary/20 hover:shadow-primary/40 hover:-translate-y-0.5 transition-all",
-                onClick: () => setLocation("/learn"),
+                onClick: () => startLoading("/learn"),
                 children: [
                   _jsx(GraduationCap, {
                     className: "h-3.5 w-3.5 mr-1.5",
@@ -445,7 +447,7 @@ export function Navbar() {
                     children: _jsx(Button, {
                       className: "w-full rounded-xl",
                       onClick: () => {
-                        setLocation("/learn");
+                        startLoading("/learn");
                         setMobileOpen(false);
                       },
                       children: [

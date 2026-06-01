@@ -1,5 +1,5 @@
 // Formula data for Learn page (EN + HI)
-// Currently only the formulas/questions for Class 6 are present in both languages.
+// Currently only theq formulas/questions for Class 6 are present in both languages.
 // Other classes/chapter formulas remain available from mathClasses in src/data/mathData.js (EN).
 
 export const formulaData = {
@@ -50,6 +50,44 @@ export const formulaData = {
       'c6-13': { formulas: [], quizzes: [] },
       'c6-14': { formulas: [], quizzes: [] },
     },
+    'class-10': {
+      'c10-1': { formulas: [], quizzes: [] },
+      'c10-2': { formulas: [], quizzes: [] },
+      'c10-3': { formulas: [], quizzes: [] },
+      'c10-4': { formulas: [], quizzes: [] },
+      'c10-5': { formulas: [], quizzes: [] },
+      'c10-6': {
+        formulas: [
+          { id: 'f1', title: 'Thales Theorem (BPT)', expression: 'AD/DB = AE/EC (if DE || BC)' },
+          { id: 'f2', title: 'Similarity Criterion', expression: 'ΔABC ~ ΔDEF if ∠A=∠D, ∠B=∠E, ∠C=∠F' },
+          { id: 'f3', title: 'Sides Ratio', expression: 'AB/DE = BC/EF = AC/DF' },
+          { id: 'f4', title: 'Pythagoras Theorem', expression: 'AC² = AB² + BC² (in right ΔABC)' },
+        ],
+        quizzes: [
+          {
+            id: 'q1',
+            question: 'If a line divides any two sides of a triangle in the same ratio, then the line is parallel to the third side. This is called:',
+            options: ['BPT', 'Converse of BPT', 'AAA Criterion', 'Pythagoras Theorem'],
+            correctAnswer: 1,
+            explanation: 'The converse of the Basic Proportionality Theorem states this property.'
+          },
+          {
+            id: 'q2',
+            question: 'In ΔABC, DE || BC. If AD=1.5cm, DB=3cm, AE=1cm, then EC is:',
+            options: ['2cm', '3cm', '1.5cm', '2.5cm'],
+            correctAnswer: 0,
+            explanation: 'By BPT: AD/DB = AE/EC. 1.5/3 = 1/EC => EC = 3/1.5 = 2cm.'
+          }
+        ],
+      },
+      'c10-8': {
+        formulas: [
+          { id: 'f1', title: 'Trigonometric Ratios', expression: 'sin θ = P/H, cos θ = B/H, tan θ = P/B' },
+          { id: 'f2', title: 'Identity', expression: 'sin²θ + cos²θ = 1' },
+        ],
+        quizzes: [],
+      }
+    }
   },
 
   hi: {
@@ -100,5 +138,45 @@ export const formulaData = {
       'c6-13': { title: '13. अनुपात, एकिक नियम और प्रतिशत', formulas: [], quizzes: [] },
       'c6-14': { title: '14. आंकड़ों का प्रबंधन', formulas: [], quizzes: [] },
     },
+    'class-10': {
+      'c10-1': { title: '1. वास्तविक संख्याएँ', formulas: [], quizzes: [] },
+      'c10-2': { title: '2. बहुपद', formulas: [], quizzes: [] },
+      'c10-3': { title: '3. दो चर वाले रैखिक समीकरण युग्म', formulas: [], quizzes: [] },
+      'c10-4': { title: '4. द्विघात समीकरण', formulas: [], quizzes: [] },
+      'c10-5': { title: '5. समांतर श्रेढ़ियाँ', formulas: [], quizzes: [] },
+      'c10-6': {
+        title: '6. त्रिभुज',
+        formulas: [
+          { id: 'f1', title: 'थेल्स प्रमेय (BPT)', expression: 'AD/DB = AE/EC (यदि DE || BC)' },
+          { id: 'f2', title: 'समरूपता की कसौटी', expression: 'ΔABC ~ ΔDEF यदि ∠A=∠D, ∠B=∠E, ∠C=∠F' },
+          { id: 'f3', title: 'भुजाओं का अनुपात', expression: 'AB/DE = BC/EF = AC/DF' },
+          { id: 'f4', title: 'पाइथागोरस प्रमेय', expression: 'AC² = AB² + BC² (समकोण ΔABC में)' },
+        ],
+        quizzes: [
+          {
+            id: 'q1',
+            question: 'यदि एक रेखा किसी त्रिभुज की दो भुजाओं को एक ही अनुपात में विभाजित करती है, तो वह तीसरी भुजा के समांतर होती है। इसे कहते हैं:',
+            options: ['BPT', 'BPT का विलोम', 'AAA कसौटी', 'पाइथागोरस प्रमेय'],
+            correctAnswer: 1,
+            explanation: 'यह आधारभूत आनुपातिकता प्रमेय (BPT) का विलोम है।'
+          },
+          {
+            id: 'q2',
+            question: 'ΔABC में, DE || BC है। यदि AD=1.5cm, DB=3cm, AE=1cm, तो EC की लंबाई क्या होगी?',
+            options: ['2cm', '3cm', '1.5cm', '2.5cm'],
+            correctAnswer: 0,
+            explanation: 'BPT के अनुसार: AD/DB = AE/EC. 1.5/3 = 1/EC => EC = 3/1.5 = 2cm.'
+          }
+        ],
+      },
+      'c10-8': {
+        title: '8. त्रिकोणमिति का परिचय',
+        formulas: [
+          { id: 'f1', title: 'त्रिकोणमितीय अनुपात', expression: 'sin θ = P/H, cos θ = B/H, tan θ = P/B' },
+          { id: 'f2', title: 'सर्वसमिका', expression: 'sin²θ + cos²θ = 1' },
+        ],
+        quizzes: [],
+      }
+    }
   },
 };

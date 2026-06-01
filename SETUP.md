@@ -98,6 +98,17 @@ The only dynamic value is `BASE_URL`, which Vite injects automatically from `vit
 
 ---
 
+## Downloading Textbook PDFs (Optional)
+
+While the app can proxy PDFs directly from NCERT via the Vite dev server, you can download them locally for offline access or production stability:
+
+```bash
+chmod +x download-ncert.sh
+./download-ncert.sh .
+```
+
+---
+
 ## Project Structure Overview
 
 ```

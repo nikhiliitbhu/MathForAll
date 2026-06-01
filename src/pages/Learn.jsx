@@ -18,6 +18,7 @@ import {
   FlaskConical,
   Trophy,
   Circle,
+  Library,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThreeScene } from "@/components/ThreeScene";
@@ -25,6 +26,7 @@ import { mathClasses } from "@/data/mathData";
 import { topicData } from "@/data/topicData";
 import { formulaData } from "@/data/formulaData";
 import { LearnLanguageSelect } from "@/components/LearnLanguageSelect";
+import { BookView } from "@/components/BookView";
 
 function QuizCard({ question, index, t, lang }) {
   const [selected, setSelected] = useState(null);
@@ -211,6 +213,7 @@ export default function Learn() {
     { id: "overview", label: t.learn.overviewTitle, icon: BookOpen },
     { id: "formulas", label: t.learn.formulas, icon: Sigma },
     { id: "quiz", label: t.learn.quiz, icon: Zap },
+    { id: "book", label: lang === "hi" ? "NCERT पुस्तक" : "NCERT Book", icon: Library },
   ];
 
   return (
@@ -342,10 +345,10 @@ export default function Learn() {
         {/* Mobile top bar */}
         <div className="sticky top-0 z-20 md:hidden flex items-center gap-3 px-4 py-3 bg-background/95 backdrop-blur border-b border-border">
           <button
-            onClick={() => setSidebarOpen(true)}
-            className="p-2 rounded-xl hover:bg-secondary transition-colors"
+            onClick={() => setSidebarOpen(!sidebarOpen)}
+            className="p-2 rounded-xl hover:bg-secondary transition-colors relative z-50"
           >
-            <Menu className="h-5 w-5" />
+            {sidebarOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
           <div className="flex items-center gap-1.5 text-sm text-muted-foreground min-w-0">
             <span className="text-primary font-medium shrink-0">
@@ -465,6 +468,12 @@ export default function Learn() {
                               </h2>
                             </div>
                             <div className="bg-card border border-border rounded-3xl p-6 md:p-8 shadow-sm">
+                              {topic.diagram && (
+                                <div 
+                                  className="flex justify-center mb-6 overflow-hidden"
+                                  dangerouslySetInnerHTML={{ __html: topic.diagram }}
+                                />
+                              )}
                               <p className="text-base md:text-lg text-foreground/85 leading-relaxed mb-6">
                                 {topic.content}
                               </p>
@@ -593,6 +602,16 @@ export default function Learn() {
                       />
                     ))}
                   </motion.div>
+                )}
+
+                {/* NCERT Book View */}
+                {activeTab === "book" && (
+                  <BookView
+                    key={`book-${selectedClassId}-${expandedChapterId}`}
+                    classId={selectedClassId}
+                    chapterId={expandedChapterId}
+                    lang={lang}
+                  />
                 )}
               </AnimatePresence>
           </div>

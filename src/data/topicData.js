@@ -122,6 +122,118 @@ export const topicData = {
           "Doubling the radius quadruples the area (because r is squared).",
       },
     ],
+    "c10-1": [
+      {
+        id: "t1",
+        title: "Introduction to Real Numbers",
+        content: "Real numbers include both rational and irrational numbers. This chapter explores the properties of integers and the nature of numbers.",
+        keyFact: "Every real number can be represented on a number line."
+      },
+      {
+        id: "t2",
+        title: "The Fundamental Theorem of Arithmetic",
+        content: "Every composite number can be expressed as a product of primes, and this factorization is unique, apart from the order in which the prime factors occur.",
+        keyFact: "HCF(a, b) × LCM(a, b) = a × b."
+      },
+      {
+        id: "t3",
+        title: "Revisiting Irrational Numbers",
+        content: "This topic proves why numbers like √2, √3, and √5 are irrational using the method of contradiction.",
+        keyFact: "A number is irrational if it cannot be written in p/q form."
+      }
+    ],
+    "c10-2": [
+      {
+        id: "t1",
+        title: "Introduction to Polynomials",
+        content: "A polynomial is an expression consisting of variables and coefficients. The degree of the polynomial is the highest power of the variable.",
+        keyFact: "A linear polynomial has degree 1, quadratic has degree 2, and cubic has degree 3."
+      },
+      {
+        id: "t2",
+        title: "Geometrical Meaning of the Zeroes",
+        content: "The zeroes of a polynomial p(x) are the x-coordinates of the points where the graph of y = p(x) intersects the x-axis.",
+        keyFact: "A quadratic polynomial graph is a parabola."
+      },
+      {
+        id: "t3",
+        title: "Zeroes and Coefficients Relationship",
+        content: "For a quadratic polynomial ax² + bx + c, the sum of zeroes (α+β) = -b/a and the product (αβ) = c/a.",
+        keyFact: "The relationship helps in verifying the zeroes of a polynomial."
+      }
+    ],
+    "c10-3": [
+      {
+        id: "t1",
+        title: "Introduction to Linear Equations",
+        content: "Two linear equations in the same two variables are called a pair of linear equations in two variables.",
+        keyFact: "The general form is a1x + b1y + c1 = 0 and a2x + b2y + c2 = 0."
+      },
+      {
+        id: "t2",
+        title: "Graphical Method of Solution",
+        content: "The solution is the point where the two lines intersect. If they are parallel, there is no solution. If they coincide, there are infinite solutions.",
+        keyFact: "Intersecting lines mean a unique solution."
+      },
+      {
+        id: "t3",
+        title: "Algebraic Methods: Substitution & Elimination",
+        content: "Substitution involves expressing one variable in terms of another. Elimination involves adding or subtracting equations to remove one variable.",
+        keyFact: "Elimination is often faster for complex coefficients."
+      }
+    ],
+    "c10-4": [
+      {
+        id: "t1",
+        title: "Quadratic Equations",
+        content: "A quadratic equation in the variable x is an equation of the form ax² + bx + c = 0, where a ≠ 0.",
+        keyFact: "Any equation of degree 2 is a quadratic equation."
+      },
+      {
+        id: "t2",
+        title: "Nature of Roots",
+        content: "The nature of roots depends on the discriminant D = b² - 4ac. If D > 0, roots are real and distinct; if D = 0, real and equal; if D < 0, no real roots.",
+        keyFact: "D helps determine the solution type without solving the equation."
+      }
+    ],
+    "c10-5": [
+      {
+        id: "t1",
+        title: "Introduction to Arithmetic Progressions",
+        content: "An Arithmetic Progression (AP) is a list of numbers in which each term is obtained by adding a fixed number to the preceding term.",
+        keyFact: "The fixed number is called the common difference 'd'."
+      }
+    ],
+    "c10-6": [
+      {
+        id: "t1",
+        title: "Similarity & Visualization",
+        diagram: `<svg viewBox="0 0 300 120" class="w-full max-w-[400px] mx-auto bg-secondary/10 rounded-2xl p-4"><g stroke="currentColor" stroke-width="2" fill="none"><path d="M50 20 L20 100 L110 100 Z"/><path d="M220 40 L200 90 L260 90 Z"/></g><text x="45" y="15" class="fill-foreground text-[10px]">A</text><text x="10" y="110" class="fill-foreground text-[10px]">B</text><text x="115" y="110" class="fill-foreground text-[10px]">C</text><text x="215" y="35" class="fill-primary text-[10px]">P</text><text x="190" y="100" class="fill-primary text-[10px]">Q</text><text x="265" y="100" class="fill-primary text-[10px]">R</text><text x="140" y="70" class="fill-muted-foreground text-xl">~</text></svg>`,
+        content: "Similar triangles have the same shape but different sizes. Use the 3D Icosahedron above to see how multiple triangular faces interact and maintain their proportions in space.",
+        keyFact: "All equilateral triangles are similar, regardless of their size."
+      },
+      {
+        id: "t2",
+        title: "Thales Theorem (BPT)",
+        diagram: `<svg viewBox="0 0 200 150" class="w-full max-w-[300px] mx-auto bg-secondary/20 rounded-xl p-4"><path d="M100 20 L40 130 L160 130 Z" fill="none" stroke="currentColor" stroke-width="2"/><line x1="60" y1="90" x2="140" y2="90" stroke="var(--primary)" stroke-width="2" stroke-dasharray="4"/><text x="95" y="15" class="fill-foreground text-xs">A</text><text x="30" y="140" class="fill-foreground text-xs">B</text><text x="165" y="140" class="fill-foreground text-xs">C</text><text x="45" y="95" class="fill-primary text-xs font-bold">D</text><text x="145" y="95" class="fill-primary text-xs font-bold">E</text></svg>`,
+        content: "If a line is drawn parallel to one side of a triangle, it divides the other two sides proportionally. Visualize this as a 'slice' through the triangle that creates a smaller, similar triangle at the top.",
+        keyFact: "If DE || BC, then AD/DB = AE/EC."
+      },
+      {
+        id: "t3",
+        title: "Criteria for Similarity",
+        diagram: `<svg viewBox="0 0 200 100" class="w-full max-w-[300px] mx-auto bg-secondary/10 rounded-2xl p-4"><path d="M40 20 L10 80 L90 80 Z" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M150 35 L130 75 L190 75 Z" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M40 30 A 10 10 0 0 1 35 25" fill="none" stroke="var(--primary)" stroke-width="2"/><path d="M150 45 A 10 10 0 0 1 145 40" fill="none" stroke="var(--primary)" stroke-width="2"/><text x="90" y="55" class="fill-foreground font-bold text-xs">AAA</text></svg>`,
+        content: "Triangles are similar if they satisfy AAA (Angles are equal), SSS (Sides are proportional), or SAS (Two sides proportional and included angle equal).",
+        keyFact: "In similarity, the ratio of areas is the square of the ratio of sides."
+      },
+      {
+        id: "t4",
+        title: "Pythagoras Theorem",
+        diagram: `<svg viewBox="0 0 200 150" class="w-full max-w-[300px] mx-auto bg-secondary/20 rounded-xl p-4"><path d="M50 20 L50 120 L150 120 Z" fill="none" stroke="currentColor" stroke-width="2"/><rect x="50" y="110" width="10" height="10" fill="none" stroke="currentColor" stroke-width="1"/><text x="45" y="15" class="fill-foreground text-xs">A</text><text x="40" y="130" class="fill-foreground text-xs">B</text><text x="155" y="130" class="fill-foreground text-xs">C</text><text x="35" y="70" class="fill-muted-foreground text-[10px]">p</text><text x="100" y="135" class="fill-muted-foreground text-[10px]">b</text><text x="110" y="65" class="fill-primary text-[10px] font-bold">h</text></svg>`,
+        content: "In a right-angled triangle, the square of the hypotenuse is equal to the sum of squares of the other two sides. This is a fundamental result in Euclidean geometry.",
+        keyFact: "Used for calculating distances and diagonal lengths in 2D and 3D shapes."
+      }
+    ]
   },
 
   hi: {
@@ -243,5 +355,34 @@ export const topicData = {
           "त्रिज्या को दोगुना करने पर क्षेत्रफल चार गुना हो जाता है (क्योंकि r² होता है)।",
       },
     ],
+    "c10-6": [
+      {
+        id: "t1",
+        title: "समरूपता और विज़ुअलाइज़ेशन",
+        diagram: `<svg viewBox="0 0 300 120" class="w-full max-w-[400px] mx-auto bg-secondary/10 rounded-2xl p-4"><g stroke="currentColor" stroke-width="2" fill="none"><path d="M50 20 L20 100 L110 100 Z"/><path d="M220 40 L200 90 L260 90 Z"/></g><text x="45" y="15" class="fill-foreground text-[10px]">A</text><text x="10" y="110" class="fill-foreground text-[10px]">B</text><text x="115" y="110" class="fill-foreground text-[10px]">C</text><text x="215" y="35" class="fill-primary text-[10px]">P</text><text x="190" y="100" class="fill-primary text-[10px]">Q</text><text x="265" y="100" class="fill-primary text-[10px]">R</text><text x="140" y="70" class="fill-muted-foreground text-xl">~</text></svg>`,
+        content: "समरूप त्रिभुजों का आकार एक जैसा होता है लेकिन उनकी माप अलग हो सकती है। ऊपर दिए गए 3D मॉडल को घुमाकर देखें कि कैसे विभिन्न त्रिभुजाकार सतहें एक-दूसरे के समानुपाती रहती हैं।",
+        keyFact: "सभी समबाहु त्रिभुज समरूप होते हैं।"
+      },
+      {
+        id: "t2",
+        title: "आधारभूत आनुपातिकता प्रमेय (थेल्स प्रमेय)",
+        diagram: `<svg viewBox="0 0 200 150" class="w-full max-w-[300px] mx-auto bg-secondary/20 rounded-xl p-4"><path d="M100 20 L40 130 L160 130 Z" fill="none" stroke="currentColor" stroke-width="2"/><line x1="60" y1="90" x2="140" y2="90" stroke="var(--primary)" stroke-width="2" stroke-dasharray="4"/><text x="95" y="15" class="fill-foreground text-xs">A</text><text x="30" y="140" class="fill-foreground text-xs">B</text><text x="165" y="140" class="fill-foreground text-xs">C</text><text x="45" y="95" class="fill-primary text-xs font-bold">D</text><text x="145" y="95" class="fill-primary text-xs font-bold">E</text></svg>`,
+        content: "यदि किसी त्रिभुज की एक भुजा के समांतर एक रेखा खींची जाए, तो वह अन्य दो भुजाओं को समान अनुपात में विभाजित करती है। इसे एक त्रिभुज के अंदर खींची गई एक समांतर 'काट' के रूप में समझें।",
+        keyFact: "यदि DE || BC है, तो AD/DB = AE/EC।"
+      },
+      {
+        id: "t3",
+        title: "त्रिभुजों की समरूपता की कसौटियाँ",
+        content: "त्रिभुज तब समरूप होते हैं जब वे AAA (कोण बराबर हों), SSS (भुजाएँ समानुपाती हों), या SAS (दो भुजाएँ समानुपाती और उनके बीच का कोण बराबर हो) नियमों का पालन करें।",
+        keyFact: "समरूप त्रिभुजों के क्षेत्रफलों का अनुपात उनकी संगत भुजाओं के वर्गों के अनुपात के बराबर होता है।"
+      },
+      {
+        id: "t4",
+        title: "पाइथागोरस प्रमेय",
+        diagram: `<svg viewBox="0 0 200 150" class="w-full max-w-[300px] mx-auto bg-secondary/20 rounded-xl p-4"><path d="M50 20 L50 120 L150 120 Z" fill="none" stroke="currentColor" stroke-width="2"/><rect x="50" y="110" width="10" height="10" fill="none" stroke="currentColor" stroke-width="1"/><text x="45" y="15" class="fill-foreground text-xs">A</text><text x="40" y="130" class="fill-foreground text-xs">B</text><text x="155" y="130" class="fill-foreground text-xs">C</text><text x="35" y="70" class="fill-muted-foreground text-[10px]">p</text><text x="100" y="135" class="fill-muted-foreground text-[10px]">b</text><text x="110" y="65" class="fill-primary text-[10px] font-bold">h</text></svg>`,
+        content: "एक समकोण त्रिभुज में, कर्ण का वर्ग अन्य दो भुजाओं के वर्गों के योग के बराबर होता है। यह ज्यामिति का सबसे महत्वपूर्ण सिद्धांत है।",
+        keyFact: "इसका उपयोग 2D और 3D आकृतियों में दूरी निकालने के लिए किया जाता है।"
+      }
+    ]
   },
 };

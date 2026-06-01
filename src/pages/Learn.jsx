@@ -145,7 +145,6 @@ export default function Learn() {
   );
   const [activeTab, setActiveTab] = useState("overview");
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState(null);
 
   const selectedClass =
     mathClasses.find((c) => c.id === selectedClassId) || mathClasses[0];
@@ -175,7 +174,6 @@ export default function Learn() {
   useEffect(() => {
     setActiveTab("overview");
     setActiveShape(selectedChapter.shapeType);
-    setActiveSection(topics[0]?.id || null);
   }, [expandedChapterId]);
 
   useEffect(() => {
@@ -185,26 +183,6 @@ export default function Learn() {
     setActiveTab("overview");
   }, [selectedClassId]);
 
-  // Scroll Spy Logic
-  useEffect(() => {
-    if (activeTab !== "overview") return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
-        });
-      },
-      { rootMargin: "-20% 0% -70% 0%", threshold: 0.1 }
-    );
-
-    const sections = document.querySelectorAll(".topic-section");
-    sections.forEach((section) => observer.observe(section));
-
-    return () => observer.disconnect();
-  }, [expandedChapterId, activeTab, topics]);
 
   const handleClassSelect = (classId) => {
     setSelectedClassId(classId);
@@ -304,11 +282,7 @@ export default function Learn() {
                                   if (el) el.scrollIntoView({ behavior: "smooth" });
                                 }, 100);
                               }}
-                              className={`w-full flex items-center gap-2 px-3 py-2 rounded-lg text-left text-xs transition-all ${
-                                activeSection === topic.id
-                                  ? "bg-primary text-primary-foreground font-medium"
-                                  : "text-muted-foreground hover:bg-secondary hover:text-foreground"
-                              }`}
+                              className="w-full flex items-center gap-2 px-3 py-2 rounded-lg text-left text-xs transition-all text-muted-foreground hover:bg-secondary hover:text-foreground"
                             >
                               <Circle className="h-1.5 w-1.5 fill-current shrink-0 opacity-60" />
                               <span className="leading-snug">{topic.title}</span>
@@ -613,34 +587,6 @@ export default function Learn() {
               </AnimatePresence>
           </div>
 
-          {/* Right Sidebar - On this Page Table of Contents */}
-          {activeTab === "overview" && (
-            <aside className="hidden xl:block w-56 flex-shrink-0 sticky top-24 h-fit max-h-[calc(100vh-8rem)] overflow-y-auto pr-2">
-              <div className="space-y-4">
-                <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-[0.2em] px-1">
-                  On this page
-                </p>
-                <nav className="flex flex-col space-y-1">
-                  {topics.map((topic) => (
-                    <button
-                      key={topic.id}
-                      onClick={() => {
-                        const el = document.getElementById(topic.id);
-                        if (el) el.scrollIntoView({ behavior: "smooth" });
-                      }}
-                      className={`text-left text-xs py-2 px-3 border-l-2 transition-all hover:bg-secondary/50 ${
-                        activeSection === topic.id
-                          ? "border-primary text-primary font-semibold bg-primary/5"
-                          : "border-border text-muted-foreground hover:border-muted-foreground/30"
-                      }`}
-                    >
-                      # {topic.title}
-                    </button>
-                  ))}
-                </nav>
-              </div>
-            </aside>
-          )}
         </div>
       </main>
     </div>

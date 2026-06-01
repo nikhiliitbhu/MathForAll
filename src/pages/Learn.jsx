@@ -246,7 +246,7 @@ export default function Learn() {
               return (
                 <div key={chapter.id}>
                   <button
-                    onClick={() => setExpandedChapterId(chapter.id)}
+                    onClick={() => setExpandedChapterId(isExpanded ? null : chapter.id)}
                     className={`w-full flex items-center justify-between gap-2 px-3 py-2.5 rounded-xl text-left transition-all text-sm ${
                       isExpanded
                         ? "bg-primary/10 text-primary font-medium"

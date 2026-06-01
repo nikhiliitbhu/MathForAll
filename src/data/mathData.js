@@ -4,84 +4,98 @@ export const mathClasses = [{
   chapters: [{
     id: "c6-1",
     title: "1. Natural Numbers",
+    titleHi: "1. प्राकृत संख्याएँ",
     shapeType: "cube",
     formulas: [],
     quizzes: []
   }, {
     id: "c6-2",
     title: "2. Whole Numbers",
+    titleHi: "2. पूर्ण संख्याएँ",
     shapeType: "sphere",
     formulas: [],
     quizzes: []
   }, {
     id: "c6-3",
     title: "3. Integers",
+    titleHi: "3. पूर्णांक",
     shapeType: "torus",
     formulas: [],
     quizzes: []
   }, {
     id: "c6-4",
     title: "4. Statistics",
+    titleHi: "4. सांख्यिकी",
     shapeType: "cylinder",
     formulas: [],
     quizzes: []
   }, {
     id: "c6-5",
     title: "5. Concept of Algebra",
+    titleHi: "5. बीजगणित की अवधारणा",
     shapeType: "cube",
     formulas: [],
     quizzes: []
   }, {
     id: "c6-6",
     title: "6. Algebraic Expressions",
+    titleHi: "6. बीजीय व्यंजक",
     shapeType: "cone",
     formulas: [],
     quizzes: []
   }, {
     id: "c6-7",
     title: "7. Geometrical Concepts",
+    titleHi: "7. ज्यामितीय अवधारणाएँ",
     shapeType: "sphere",
     formulas: [],
     quizzes: []
   }, {
     id: "c6-8",
     title: "8. Angles",
+    titleHi: "8. कोण",
     shapeType: "torus",
     formulas: [],
     quizzes: []
   }, {
     id: "c6-9",
     title: "9. Triangles",
+    titleHi: "9. त्रिभुज",
     shapeType: "cone",
     formulas: [],
     quizzes: []
   }, {
     id: "c6-10",
     title: "10. Geometrical Constructions (Using Ruler and Compass)",
+    titleHi: "10. ज्यामितीय रचनाएँ (रूलर और कम्पास से)",
     shapeType: "cylinder",
     formulas: [],
     quizzes: []
   }, {
     id: "c6-11",
     title: "11. Symmetry",
+    titleHi: "11. सममिति",
     shapeType: "icosahedron",
     formulas: [],
     quizzes: []
   }, {
     id: "c6-12",
     title: "12. Perimeter and Area",
+    titleHi: "12. परिमाप और क्षेत्रफल",
     shapeType: "cube",
     formulas: [],
     quizzes: []
   }, {
     id: "c6-13",
     title: "13. Ratio, Unitary Method, and Percentage",
+    titleHi: "13. अनुपात, एकात्मक विधि और प्रतिशत",
     shapeType: "sphere",
     formulas: [],
     quizzes: []
   }, {
     id: "c6-14",
     title: "14. Data Handling",
+    titleHi: "14. आँकड़ों का संभालना",
     shapeType: "torus",
     formulas: [],
     quizzes: []
@@ -92,6 +106,7 @@ export const mathClasses = [{
   chapters: [{
     id: "c7-1",
     title: "Triangles",
+    titleHi: "त्रिभुज",
     shapeType: "cone",
     formulas: [{
       id: "f1",
@@ -126,6 +141,7 @@ export const mathClasses = [{
   }, {
     id: "c7-3",
     title: "Exponents",
+    titleHi: "घातांक",
     shapeType: "icosahedron",
     formulas: [{
       id: "f1",
@@ -164,6 +180,7 @@ export const mathClasses = [{
   chapters: [{
     id: "c8-1",
     title: "Squares & Square Roots",
+    titleHi: "वर्ग और वर्गमूल",
     shapeType: "cube",
     formulas: [{
       id: "f1",
@@ -198,6 +215,7 @@ export const mathClasses = [{
   }, {
     id: "c8-4",
     title: "Mensuration 3D",
+    titleHi: "त्रिविमीय क्षेत्रमिति",
     shapeType: "sphere",
     formulas: [{
       id: "f1",
@@ -236,6 +254,7 @@ export const mathClasses = [{
   chapters: [{
     id: "c9-2",
     title: "Polynomials",
+    titleHi: "बहुपद",
     shapeType: "icosahedron",
     formulas: [{
       id: "f1",
@@ -270,6 +289,7 @@ export const mathClasses = [{
   }, {
     id: "c9-5",
     title: "Circles",
+    titleHi: "वृत्त",
     shapeType: "sphere",
     formulas: [{
       id: "f1",
@@ -302,24 +322,28 @@ export const mathClasses = [{
   chapters: [{
     id: "c10-1",
     title: "1. Real Numbers",
+    titleHi: "1. वास्तविक संख्याएँ",
     shapeType: "icosahedron",
     formulas: [],
     quizzes: []
   }, {
     id: "c10-2",
     title: "2. Polynomials",
+    titleHi: "2. बहुपद",
     shapeType: "sphere",
     formulas: [],
     quizzes: []
   }, {
     id: "c10-3",
     title: "3. Pair of Linear Equations in Two Variables",
+    titleHi: "3. दो चरों में रैखिक समीकरण युग्म",
     shapeType: "cylinder",
     formulas: [],
     quizzes: []
   }, {
     id: "c10-4",
     title: "Quadratic Equations",
+    titleHi: "द्विघात समीकरण",
     shapeType: "cube",
     formulas: [{
       id: "f1",
@@ -354,12 +378,14 @@ export const mathClasses = [{
   }, {
     id: "c10-5",
     title: "5. Arithmetic Progressions",
+    titleHi: "5. समांतर श्रेढ़ी",
     shapeType: "torus",
     formulas: [],
     quizzes: []
   }, {
     id: "c10-6",
     title: "6. Triangles (त्रिभुज)",
+    titleHi: "6. त्रिभुज",
     shapeType: "icosahedron",
     formulas: [
       { id: "f1", title: "Thales Theorem (BPT)", expression: "AD/DB = AE/EC" },
@@ -378,6 +404,7 @@ export const mathClasses = [{
   }, {
     id: "c10-8",
     title: "8. Trigonometry",
+    titleHi: "8. त्रिकोणमिति",
     shapeType: "torus",
     formulas: [{
       id: "f1",
@@ -416,6 +443,7 @@ export const mathClasses = [{
   chapters: [{
     id: "c11-4",
     title: "Conic Sections",
+    titleHi: "शंकु परिच्छेद",
     shapeType: "cone",
     formulas: [{
       id: "f1",
@@ -450,6 +478,7 @@ export const mathClasses = [{
   }, {
     id: "c11-7",
     title: "Limits & Derivatives",
+    titleHi: "सीमाएँ और अवकलज",
     shapeType: "torus",
     formulas: [{
       id: "f1",
@@ -482,6 +511,7 @@ export const mathClasses = [{
   chapters: [{
     id: "c12-2",
     title: "Matrices",
+    titleHi: "आव्यूह",
     shapeType: "cube",
     formulas: [{
       id: "f1",
@@ -510,6 +540,7 @@ export const mathClasses = [{
   }, {
     id: "c12-4",
     title: "Integrals",
+    titleHi: "समाकलन",
     shapeType: "cylinder",
     formulas: [{
       id: "f1",

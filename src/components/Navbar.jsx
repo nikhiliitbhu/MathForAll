@@ -14,6 +14,7 @@ import {
   GraduationCap,
   ArrowRight,
   FlaskConical,
+  Languages,
 } from "lucide-react";
 import { useTheme } from "./ThemeProvider";
 import { Button } from "./ui/button";
@@ -21,58 +22,25 @@ import { useLanguage } from "./LanguageProvider";
 import { useLoading } from "@/context/LoadingContext";
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 
-const classes = ["6", "7", "8", "9", "10", "11", "12"];
-
-const classDropdown = classes.map((c) => ({
-  label: `Class ${c}`,
-  href: "/learn",
-  desc:
-    c === "6"
-      ? "Geometry, Fractions, Algebra"
-      : c === "7"
-        ? "Triangles, Equations, Ratios"
-        : c === "8"
-          ? "Quadrilaterals, Mensuration, Identities"
-          : c === "9"
-            ? "Polynomials, Circles, Heron's Formula"
-            : c === "10"
-              ? "Trigonometry, Quadratics, Volumes"
-              : c === "11"
-                ? "Calculus, Conics, Binomial"
-                : "Matrices, Integrals, Vectors",
-}));
-
-const resourceLinks = [
-  {
-    icon: Shapes,
-    label: "3D Shape Explorer",
-    desc: "Rotate & explore geometry",
-    href: "/learn",
-  },
-  {
-    icon: BookOpen,
-    label: "Formula Library",
-    desc: "All formulas by chapter",
-    href: "/learn",
-  },
-  {
-    icon: BrainCircuit,
-    label: "Quick Quizzes",
-    desc: "Test your understanding",
-    href: "/learn",
-  },
-  {
-    icon: FlaskConical,
-    label: "Maths Lab",
-    desc: "Interactive visual tools",
-    href: "/learn",
-  },
-];
+const classNums = ["6", "7", "8", "9", "10", "11", "12"];
 
 export function Navbar() {
   const [location, setLocation] = useLocation();
   const { theme, setTheme } = useTheme();
-  const { setLanguage, t } = useLanguage();
+  const { setLanguage, lang, t } = useLanguage();
+
+  const classDropdown = classNums.map((c) => ({
+    label: `Class ${c}`,
+    href: "/learn",
+    desc: t.navbar[`cls${c}desc`],
+  }));
+
+  const resourceLinks = [
+    { icon: Shapes, label: t.navbar.res3dExplorer, desc: t.navbar.res3dDesc, href: "/learn" },
+    { icon: BookOpen, label: t.navbar.resFormulaLib, desc: t.navbar.resFormulaDesc, href: "/learn" },
+    { icon: BrainCircuit, label: t.navbar.resQuizzes, desc: t.navbar.resQuizzesDesc, href: "/learn" },
+    { icon: FlaskConical, label: t.navbar.resMathsLab, desc: t.navbar.resMathsLabDesc, href: "/learn" },
+  ];
   const { startLoading } = useLoading();
 
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -158,7 +126,7 @@ export function Navbar() {
                         ? "text-primary bg-primary/8"
                         : "text-muted-foreground hover:text-foreground hover:bg-secondary"),
                     children: [
-                      "Classes",
+                      t.navbar.classes,
                       _jsx(ChevronDown, {
                         className:
                           "h-3.5 w-3.5 transition-transform " +
@@ -181,7 +149,7 @@ export function Navbar() {
                           _jsx("p", {
                             className:
                               "text-xs font-bold text-muted-foreground uppercase tracking-widest px-3 py-2",
-                            children: "Select a class",
+                            children: t.navbar.selectClass,
                           }),
                           _jsx("div", {
                             className: "grid grid-cols-2 gap-1",
@@ -300,6 +268,23 @@ export function Navbar() {
           _jsxs("div", {
             className: "flex items-center gap-2",
             children: [
+              _jsxs("div", {
+                className: "hidden md:flex items-center bg-secondary rounded-full p-0.5 text-xs font-semibold border border-border",
+                "aria-label": t.navbar.selectLanguage,
+                children: [
+                  _jsx("button", {
+                    onClick: () => setLanguage("en"),
+                    className: "px-2.5 py-1 rounded-full transition-colors " + (lang === "en" ? "bg-background text-foreground shadow-sm" : "text-muted-foreground hover:text-foreground"),
+                    children: "EN",
+                  }),
+                  _jsx("button", {
+                    onClick: () => setLanguage("hi"),
+                    className: "px-2.5 py-1 rounded-full transition-colors " + (lang === "hi" ? "bg-background text-foreground shadow-sm" : "text-muted-foreground hover:text-foreground"),
+                    children: "हिं",
+                  }),
+                ],
+              }),
+
               _jsx(Button, {
                 size: "sm",
                 "data-testid": "nav-cta-btn",
@@ -392,7 +377,7 @@ export function Navbar() {
                       }),
                       _jsxs("div", {
                         className: "grid grid-cols-4 gap-1",
-                        children: classes.map((c) =>
+                        children: classNums.map((c) =>
                           _jsx(
                             "button",
                             {
@@ -465,7 +450,30 @@ export function Navbar() {
                     children: t.navbar.about,
                   }),
 
-                  {/* Language select moved to Learn page */}
+                  _jsxs("div", {
+                    className: "pt-2 pb-1",
+                    children: [
+                      _jsx("p", {
+                        className: "text-xs font-bold text-muted-foreground uppercase tracking-widest px-4 py-2",
+                        children: t.navbar.selectLanguage,
+                      }),
+                      _jsxs("div", {
+                        className: "flex gap-2 px-4",
+                        children: [
+                          _jsx("button", {
+                            onClick: () => setLanguage("en"),
+                            className: "flex-1 py-2.5 rounded-xl text-sm font-semibold border transition-colors " + (lang === "en" ? "bg-primary text-primary-foreground border-primary" : "border-border text-foreground hover:bg-secondary"),
+                            children: "English",
+                          }),
+                          _jsx("button", {
+                            onClick: () => setLanguage("hi"),
+                            className: "flex-1 py-2.5 rounded-xl text-sm font-semibold border transition-colors " + (lang === "hi" ? "bg-primary text-primary-foreground border-primary" : "border-border text-foreground hover:bg-secondary"),
+                            children: "हिंदी",
+                          }),
+                        ],
+                      }),
+                    ],
+                  }),
                 ],
               }),
             ],

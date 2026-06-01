@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Github, Mail, School, Heart, BookOpen, Sparkles, MapPin, ExternalLink, Code2, Palette, Pi, Shapes, BrainCircuit } from "lucide-react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/components/LanguageProvider";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 28 },
@@ -81,15 +82,16 @@ const developers = [
   },
 ];
 
-
-const projectInfo = [
-  { label: "Project Name", value: "Mathrix" },
-  { label: "Purpose", value: "Free mathematics resource for Class 6–12 students" },
-  { label: "Stack", value: "React · Vite · Tailwind CSS · Three.js" },
-  { label: "Version", value: "1.0.0" },
-];
-
 export default function About() {
+  const { t } = useLanguage();
+
+  const projectInfo = [
+    { label: t.about.projLabelName, value: "Mathrix" },
+    { label: t.about.projLabelPurpose, value: t.about.projValuePurpose },
+    { label: t.about.projLabelStack, value: "React · Vite · Tailwind CSS · Three.js" },
+    { label: t.about.projLabelVersion, value: "1.0.0" },
+  ];
+
   return (
     <div className="min-h-screen bg-background text-foreground">
 
@@ -113,27 +115,25 @@ export default function About() {
             className="mb-5 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/8 px-4 py-1.5 text-sm font-medium text-primary"
           >
             <Sparkles className="h-3.5 w-3.5" />
-            About Mathrix
+            {t.about.aboutChip}
           </motion.div>
 
           <motion.h1
             variants={fadeUp} initial="hidden" animate="show" custom={1}
             className="text-4xl md:text-6xl font-bold tracking-tight mb-5"
           >
-            Built with{" "}
+            {t.about.aboutTitle.split(t.about.passionWord)[0]}
             <span className="bg-gradient-to-r from-primary to-fuchsia-500 bg-clip-text text-transparent">
-              passion
-            </span>{" "}
-            for maths
+              {t.about.passionWord}
+            </span>
+            {t.about.aboutTitle.split(t.about.passionWord)[1]}
           </motion.h1>
 
           <motion.p
             variants={fadeUp} initial="hidden" animate="show" custom={2}
             className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed"
           >
-            Mathrix is a free mathematics platform for students of Class 6–12.
-            Conceived, designed, and developed by two students who wanted to make
-            learning maths genuinely enjoyable.
+            {t.about.aboutDesc}
           </motion.p>
         </div>
       </section>
@@ -151,7 +151,7 @@ export default function About() {
                 <School className="h-6 w-6" />
               </div>
               <div>
-                <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-1">School</p>
+                <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-1">{t.about.school}</p>
                 <div className="flex items-center justify-between gap-4">
                     <h3 className="font-semibold text-foreground text-base leading-snug">
                       GIC Noida Sector 12
@@ -167,7 +167,7 @@ export default function About() {
                   </a>
                 </div>
                 <p className="text-sm text-muted-foreground mt-1">
-                  A school rooted in values, excellence, and holistic education.
+                  {t.about.schoolDesc}
                 </p>
               </div>
             </motion.div>
@@ -180,7 +180,7 @@ export default function About() {
                 <MapPin className="h-6 w-6" />
               </div>
               <div>
-                <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-1">Inspired by</p>
+                <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-1">{t.about.inspiredBy}</p>
                 <div className="flex items-center justify-between gap-4">
                   <h3 className="font-semibold text-foreground text-base leading-snug">
                     ISKCON Temple, Noida
@@ -196,8 +196,7 @@ export default function About() {
                   </a>
                 </div>
                 <p className="text-sm text-muted-foreground mt-1">
-                  We are proud to be associated with the ISKCON community, whose
-                  values of dedication and selfless service inspire our work.
+                  {t.about.iskconDesc}
                 </p>
               </div>
             </motion.div>
@@ -213,8 +212,8 @@ export default function About() {
             variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}
             className="mb-12 text-center"
           >
-            <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-2">The Team</p>
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Meet the developers</h2>
+            <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-2">{t.about.theTeam}</p>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight">{t.about.meetDevelopers}</h2>
           </motion.div>
 
           <div className="grid md:grid-cols-2 gap-6">
@@ -254,7 +253,7 @@ export default function About() {
                       className="inline-flex items-center gap-2 rounded-xl border border-border bg-background px-4 py-2 text-sm font-semibold text-primary hover:bg-secondary transition-colors"
                     >
                       <ExternalLink className="h-4 w-4" />
-                      Portfolio
+                      {t.about.portfolio}
                     </a>
                   )}
                 </div>
@@ -271,8 +270,8 @@ export default function About() {
             variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}
             className="mb-8 text-center"
           >
-            <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-2">Credits</p>
-            <h2 className="text-3xl font-bold tracking-tight">Project information</h2>
+            <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-2">{t.about.credits}</p>
+            <h2 className="text-3xl font-bold tracking-tight">{t.about.projectInfo}</h2>
           </motion.div>
 
           <motion.div
@@ -299,18 +298,18 @@ export default function About() {
             <div className="mb-5 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-fuchsia-600 shadow-lg shadow-primary/30">
               <Pi className="h-7 w-7 text-white" />
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">Ready to start learning?</h2>
-            <p className="text-muted-foreground mb-8">Explore chapters, formulas, and quizzes — all free, forever.</p>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">{t.about.readyTitle}</h2>
+            <p className="text-muted-foreground mb-8">{t.about.readyDesc}</p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Link href="/learn">
                 <Button size="lg" className="gap-2 rounded-xl bg-gradient-to-r from-primary to-fuchsia-600 hover:opacity-90 transition-opacity shadow-lg shadow-primary/20">
                   <BookOpen className="h-4 w-4" />
-                  Start Learning
+                  {t.about.startLearning}
                 </Button>
               </Link>
               <Link href="/">
                 <Button size="lg" variant="outline" className="gap-2 rounded-xl">
-                  Back to Home
+                  {t.about.backToHome}
                 </Button>
               </Link>
             </div>
@@ -321,7 +320,9 @@ export default function About() {
       {/* ── Footer note ── */}
       <div className="border-t border-border py-6 text-center text-xs text-muted-foreground">
         <span className="inline-flex items-center gap-1.5">
-          Made with <Heart className="h-3 w-3 text-rose-500 fill-rose-500" /> GIC Noida, 2026. All rights reserved.
+          {t.about.footerNote.split("GIC")[0]}
+          <Heart className="h-3 w-3 text-rose-500 fill-rose-500" />
+          {"GIC" + t.about.footerNote.split("GIC")[1]}
         </span>
       </div>
 

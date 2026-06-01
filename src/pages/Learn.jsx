@@ -25,7 +25,6 @@ import { ThreeScene } from "@/components/ThreeScene";
 import { mathClasses } from "@/data/mathData";
 import { topicData } from "@/data/topicData";
 import { formulaData } from "@/data/formulaData";
-import { LearnLanguageSelect } from "@/components/LearnLanguageSelect";
 import { BookView } from "@/components/BookView";
 
 function QuizCard({ question, index, t, lang }) {
@@ -154,6 +153,9 @@ export default function Learn() {
     selectedClass.chapters.find((c) => c.id === expandedChapterId) ||
     selectedClass.chapters[0];
 
+  const chapterTitle = (ch) =>
+    lang === "hi" && ch.titleHi ? ch.titleHi : ch.title;
+
   // Topics (language-aware)
   const topics =
     (topicData?.[lang]?.[expandedChapterId] ?? topicData?.en?.[expandedChapterId] ?? []) ||
@@ -273,7 +275,7 @@ export default function Learn() {
                         : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
                     }`}
                   >
-                    <span className="truncate">{chapter.title}</span>
+                    <span className="truncate">{chapterTitle(chapter)}</span>
                     <ChevronDown
                       className={`h-4 w-4 shrink-0 transition-transform ${
                         isExpanded ? "rotate-180" : ""
@@ -326,7 +328,7 @@ export default function Learn() {
           <div className="flex items-center gap-2 text-xs text-muted-foreground">
             <GraduationCap className="h-4 w-4" />
             <span>
-              {selectedClass.title} · {selectedClass.chapters.length} chapters
+              {selectedClass.title} · {selectedClass.chapters.length} {t.learn.chapters.toLowerCase()}
             </span>
           </div>
         </div>
@@ -355,32 +357,27 @@ export default function Learn() {
               {selectedClass.title}
             </span>
             <ChevronRight className="h-3.5 w-3.5 shrink-0" />
-            <span className="truncate">{selectedChapter.title}</span>
+            <span className="truncate">{chapterTitle(selectedChapter)}</span>
           </div>
         </div>
 
         <div className="max-w-6xl mx-auto px-4 md:px-8 py-8 pb-24 flex gap-10">
           <div className="flex-1 min-w-0 space-y-8">
-          {/* Learn header actions */}
-          <div className="hidden md:flex justify-end">
-            <LearnLanguageSelect />
-          </div>
-
           {/* Breadcrumb */}
           <div className="hidden md:flex items-center gap-1.5 text-sm">
             <BookOpen className="h-4 w-4 text-primary" />
             <span className="text-primary font-medium">{selectedClass.title}</span>
             <ChevronRight className="h-4 w-4 text-muted-foreground" />
-            <span className="text-muted-foreground">{selectedChapter.title}</span>
+            <span className="text-muted-foreground">{chapterTitle(selectedChapter)}</span>
           </div>
 
           {/* Chapter heading */}
           <div>
             <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground mb-2">
-              {selectedChapter.title}
+              {chapterTitle(selectedChapter)}
             </h1>
             <p className="text-muted-foreground text-sm">
-              {`${selectedClass.title} · ${topics.length} topics · ${formulas.length} formulas · ${quizzes.length} quiz questions`}
+              {`${selectedClass.title} · ${topics.length} ${lang === "hi" ? "टॉपिक्स" : "topics"} · ${formulas.length} ${lang === "hi" ? "सूत्र" : "formulas"} · ${quizzes.length} ${lang === "hi" ? "क्विज़ प्रश्न" : "quiz questions"}`}
             </p>
           </div>
 
@@ -585,7 +582,7 @@ export default function Learn() {
                       <p className="text-sm text-foreground">
                         <span className="font-semibold">{quizzes.length}</span>{" "}
                         {lang === "hi" ? "प्रश्न" : "questions"}{" "}
-                        {lang === "hi" ? "पर" : "on"} {selectedChapter.title}.{" "}
+                        {lang === "hi" ? "पर" : "on"} {chapterTitle(selectedChapter)}.{" "}
                         {lang === "hi"
                           ? "एक विकल्प चुनें और उत्तर जांचें।"
                           : 'Select an answer and click "Check Answer".'}

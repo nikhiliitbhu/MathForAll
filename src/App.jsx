@@ -8,6 +8,7 @@ import { LanguageProvider } from "@/components/LanguageProvider";
 import { LoadingProvider } from "@/context/LoadingContext";
 import { LoadingScreen } from "@/components/LoadingScreen";
 import { AppInitializer } from "@/components/AppInitializer";
+import { HelmetProvider } from "react-helmet-async";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
 import Learn from "@/pages/Learn";
@@ -39,11 +40,13 @@ function App() {
         children: /*#__PURE__*/_jsx(QueryClientProvider, {
           client: queryClient,
           children: /*#__PURE__*/_jsxs(TooltipProvider, {
-            children: [/*#__PURE__*/_jsx(AppInitializer, {}), /*#__PURE__*/_jsx(LoadingScreen, {}), /*#__PURE__*/_jsx("div", {
-              className: "min-h-screen bg-background font-sans",
-              children: /*#__PURE__*/_jsxs(WouterRouter, {
-                base: import.meta.env.BASE_URL.replace(/\/$/, ""),
-                children: [/*#__PURE__*/_jsx(Navbar, {}), /*#__PURE__*/_jsx(Router, {})]
+            children: [/*#__PURE__*/_jsx(HelmetProvider, {
+              children: /*#__PURE__*/_jsxs("div", {
+                className: "min-h-screen bg-background font-sans",
+                children: [/*#__PURE__*/_jsx(AppInitializer, {}), /*#__PURE__*/_jsx(LoadingScreen, {}), /*#__PURE__*/_jsxs(WouterRouter, {
+                  base: import.meta.env.BASE_URL.replace(/\/$/, ""),
+                  children: [/*#__PURE__*/_jsx(Navbar, {}), /*#__PURE__*/_jsx(Router, {})]
+                })]
               })
             }), /*#__PURE__*/_jsx(Toaster, {})]
           })
@@ -53,4 +56,3 @@ function App() {
   });
 }
 export default App;
-

@@ -3,6 +3,8 @@ import { Github, Mail, School, Heart, BookOpen, Sparkles, MapPin, ExternalLink, 
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/components/LanguageProvider";
+import { SEO } from "@/components/SEO";
+import { pageSEO } from "@/hooks/useSEO";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 28 },
@@ -84,6 +86,7 @@ const developers = [
 
 export default function About() {
   const { t } = useLanguage();
+  const seo = pageSEO.about;
 
   const projectInfo = [
     { label: t.about.projLabelName, value: "Mathrix" },
@@ -91,9 +94,16 @@ export default function About() {
     { label: t.about.projLabelStack, value: "React · Vite · Tailwind CSS · Three.js" },
     { label: t.about.projLabelVersion, value: "1.0.0" },
   ];
-
+  
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <>
+      <SEO
+        title={seo.title}
+        description={seo.description}
+        canonical={seo.canonical}
+        type={seo.type}
+      />
+      <div className="min-h-screen bg-background text-foreground">
 
       {/* ── Hero ── */}
       <section className="relative overflow-hidden py-24 md:py-32">
@@ -326,6 +336,7 @@ export default function About() {
         </span>
       </div>
 
-    </div>
+      </div>
+    </>
   );
 }

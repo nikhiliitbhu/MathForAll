@@ -5,7 +5,7 @@ Allow: /
 Crawl-delay: 1
 
 # Sitemap location
-Sitemap: https://mathrix.vercel.app/sitemap.xml
+Sitemap: https://mathforall.vercel.app/sitemap.xml
 
 # Disallow admin or private areas (if any in future)
 # Disallow: /admin/

@@ -22,7 +22,8 @@ import { useLanguage } from "./LanguageProvider";
 import { useLoading } from "@/context/LoadingContext";
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 
-const classNums = ["6", "7", "8", "9", "10", "11", "12"];
+// UP Board covers Class 9 to 12; Class 6-8 fall under the Basic Shiksha Parishad.
+const classNums = ["9", "10", "11", "12"];
 
 export function Navbar() {
   const [location, setLocation] = useLocation();

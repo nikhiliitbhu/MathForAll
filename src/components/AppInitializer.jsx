@@ -3,26 +3,15 @@ import { useLocation } from 'wouter';
 import { useLoading } from '@/context/LoadingContext';
 
 export function AppInitializer() {
-  const { startLoading, stopLoading } = useLoading();
+  const { startLoading } = useLoading();
   const [location] = useLocation();
 
   useEffect(() => {
-    const isFirstLoad = !sessionStorage.getItem('appInitialized');
-
-    if (!isFirstLoad) return;
-
-    sessionStorage.setItem('appInitialized', 'true');
-
-    if (location === '/learn') {
-      startLoading();
-
-      const timer = setTimeout(() => {
-        stopLoading();
-      }, 2000);
-
-      return () => clearTimeout(timer);
-    }
-  }, [location, startLoading, stopLoading]);
+    // Play the intro on every visit to the learning page, not just the first of
+    // the browser session. LoadingScreen decides when it is done — it ends with
+    // the clip — so there is deliberately no timer here to cut it short.
+    if (location === '/learn') startLoading();
+  }, [location, startLoading]);
 
   return null;
 }

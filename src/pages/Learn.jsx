@@ -23,9 +23,14 @@ import {
 import { Button } from "@/components/ui/button";
 import { ThreeScene } from "@/components/ThreeScene";
 import { mathClasses } from "@/data/mathData";
+import { upBoardClasses, upBoardSyllabus, groupByUnit } from "@/data/upBoardSyllabus";
 import { topicData } from "@/data/topicData";
 import { formulaData } from "@/data/formulaData";
 import { BookView } from "@/components/BookView";
+
+// UP Board runs Class 9 to 12; Class 6-8 sit with the Basic Shiksha Parishad, so
+// the data for them stays in mathData.js but is not offered here.
+const boardClasses = mathClasses.filter((c) => upBoardClasses.includes(c.id));
 
 function QuizCard({ question, index, t, lang }) {
   const [selected, setSelected] = useState(null);
@@ -138,16 +143,16 @@ function QuizCard({ question, index, t, lang }) {
 export default function Learn() {
   const { lang, t } = useLanguage();
 
-  const [selectedClassId, setSelectedClassId] = useState(mathClasses[0].id);
-  const [expandedChapterId, setExpandedChapterId] = useState(mathClasses[0].chapters[0].id);
+  const [selectedClassId, setSelectedClassId] = useState(boardClasses[0].id);
+  const [expandedChapterId, setExpandedChapterId] = useState(boardClasses[0].chapters[0].id);
   const [activeShape, setActiveShape] = useState(
-    mathClasses[0].chapters[0].shapeType
+    boardClasses[0].chapters[0].shapeType
   );
   const [activeTab, setActiveTab] = useState("overview");
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const selectedClass =
-    mathClasses.find((c) => c.id === selectedClassId) || mathClasses[0];
+    boardClasses.find((c) => c.id === selectedClassId) || boardClasses[0];
   const selectedChapter =
     selectedClass.chapters.find((c) => c.id === expandedChapterId) ||
     selectedClass.chapters[0];
@@ -214,7 +219,7 @@ export default function Learn() {
           </p>
 
           <div className="grid grid-cols-4 gap-1.5">
-            {mathClasses.map((c) => (
+            {boardClasses.map((c) => (
               <button
                 key={c.id}
                 onClick={() => handleClassSelect(c.id)}
@@ -235,8 +240,34 @@ export default function Learn() {
             {t.learn.chapters}
           </p>
 
+          {upBoardSyllabus[selectedClassId]?.syllabusMismatch && (
+            <div className="mx-3 mb-3 rounded-xl border border-amber-500/25 bg-amber-500/10 p-3">
+              <p className="text-[11px] leading-relaxed text-foreground/80">
+                {lang === "hi"
+                  ? "UP Board का कक्षा 9 पाठ्यक्रम अभी पुरानी NCERT पुस्तक पर आधारित है, जबकि NCERT अब नई पुस्तक ‘गणित मंजरी’ देता है। नीचे नई पुस्तक के अध्याय हैं।"
+                  : "UP Board's Class 9 syllabus still follows the older NCERT book, while NCERT now publishes the new one, Ganita Manjari. The chapters below are from the new book."}
+              </p>
+            </div>
+          )}
+
           <div className="space-y-0.5 px-2">
-            {selectedClass.chapters.map((chapter) => {
+            {groupByUnit(selectedClassId, selectedClass.chapters).map(({ unit, chapters }) => (
+              <div key={unit ? unit.roman : "unplaced"} className="mb-1.5">
+                <div className="flex items-baseline justify-between gap-2 px-3 pt-2.5 pb-1">
+                  <span className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground truncate">
+                    {unit
+                      ? `${unit.roman}. ${lang === "hi" ? unit.nameHi : unit.name}`
+                      : lang === "hi"
+                      ? "पाठ्यक्रम में सूचीबद्ध नहीं"
+                      : "Not listed in the syllabus"}
+                  </span>
+                  {unit && (
+                    <span className="shrink-0 text-[10px] font-semibold text-primary bg-primary/10 rounded-full px-2 py-0.5 tabular-nums">
+                      {unit.marks} {lang === "hi" ? "अंक" : "marks"}
+                    </span>
+                  )}
+                </div>
+            {chapters.map((chapter) => {
               const isExpanded = expandedChapterId === chapter.id;
               const chapterTopics =
                 topicData?.[lang]?.[chapter.id] ??
@@ -295,6 +326,8 @@ export default function Learn() {
                 </div>
               );
             })}
+              </div>
+            ))}
           </div>
         </div>
 
@@ -578,9 +611,9 @@ export default function Learn() {
                 {/* NCERT Book View */}
                 {activeTab === "book" && (
                   <BookView
-                    key={`book-${selectedClassId}-${expandedChapterId}`}
+                    key={`book-${selectedClassId}`}
                     classId={selectedClassId}
-                    chapterId={expandedChapterId}
+                    chapterTitle={selectedChapter?.title}
                     lang={lang}
                   />
                 )}

@@ -98,14 +98,33 @@ The only dynamic value is `BASE_URL`, which Vite injects automatically from `vit
 
 ---
 
-## Downloading Textbook PDFs (Optional)
+## NCERT Textbook PDFs
 
-While the app can proxy PDFs directly from NCERT via the Vite dev server, you can download them locally for offline access or production stability:
+Nothing to download. The **NCERT Book** tab streams chapter PDFs straight from
+`ncert.nic.in` and renders them in the browser with PDF.js.
+
+NCERT sends no CORS headers, so the request goes through a proxy. In development
+that is handled for you by the `/ncert-pdf` rule in `vite.config.js`. **A
+production deploy needs the same hop from its own backend** — a static host alone
+will not work. Point `PROXY_BASE` in `src/components/BookView.jsx` at your own
+route, which should forward to `https://ncert.nic.in` with a browser `User-Agent`
+and a `Referer` of `https://ncert.nic.in/textbook.php`.
+
+NCERT's server drops the occasional request; the viewer retries three times before
+showing an error, and falls back to the Google Docs viewer after that.
+
+### Refreshing the book list
+
+`src/data/ncertMaths.js` is generated, not hand-written. When NCERT changes the
+syllabus, regenerate it:
 
 ```bash
-chmod +x download-ncert.sh
-./download-ncert.sh .
+npm i -D pdfjs-dist@3.11.174
+node scripts/build-ncert-data.mjs
 ```
+
+The script reads NCERT's own catalogue out of `textbook.php` and lifts the chapter
+titles from each book's contents page.
 
 ---
 

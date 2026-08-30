@@ -8,6 +8,7 @@ Mathrix is a frontend learning app for school mathematics (Class 6-12) with chap
 - Shows chapter-specific formula cards
 - Provides chapter quizzes with instant correct/incorrect feedback
 - Includes interactive 3D shape explorer (drag to rotate)
+- Reads the official NCERT maths textbook for every class, English or Hindi medium, chapter by chapter
 - Supports light/dark theme switching
 - Uses a modern responsive UI for desktop and mobile
 
@@ -33,6 +34,7 @@ src/
   App.jsx                  # App shell, providers, router
   main.jsx                 # React entrypoint
   data/mathData.js         # Class/chapter/formula/quiz data source
+  data/ncertMaths.js       # NCERT book/chapter catalogue (generated — see scripts/)
   pages/
     Home.jsx               # Marketing + feature showcase
     Learn.jsx              # Main learning interface
@@ -41,6 +43,7 @@ src/
     Navbar.jsx             # Top navigation + theme toggle
     ThemeProvider.jsx      # Light/dark/system theme handling
     ThreeScene.jsx         # Interactive 3D geometry viewer
+    BookView.jsx           # NCERT textbook reader (PDF.js, streamed from ncert.nic.in)
     ui/*                   # Reusable UI components
 ```
 

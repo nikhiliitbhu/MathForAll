@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLoading } from '@/context/LoadingContext';
 import { useLocation } from 'wouter';
@@ -13,30 +13,29 @@ export function LoadingScreen() {
   // Lock body scroll when loading
   useBodyLock(isLoading);
 
+  const finish = useCallback(() => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    stopLoading();
+    if (nextRoute) setLocation(nextRoute);
+  }, [nextRoute, stopLoading, setLocation]);
+
   useEffect(() => {
-    if (isLoading && videoRef.current) {
-      // Reset video to start
-      videoRef.current.currentTime = 0;
-      videoRef.current.play().catch((err) => console.log('Autoplay prevented:', err));
+    if (!isLoading || !videoRef.current) return;
 
-      // Clear any existing timeout
-      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    videoRef.current.currentTime = 0;
+    videoRef.current.play().catch((err) => console.log('Autoplay prevented:', err));
 
-      // Set timeout for 2 seconds
-      timeoutRef.current = setTimeout(() => {
-        stopLoading();
-
-        // Navigate to next route if specified
-        if (nextRoute) {
-          setLocation(nextRoute);
-        }
-      }, 2000);
-    }
+    // The intro ends when the clip ends — see the onEnded handler below. A fixed
+    // timer used to cut it off partway through, so this one only exists to make
+    // sure a video that never plays (autoplay blocked, file missing) cannot leave
+    // the reader stuck on a black screen.
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    timeoutRef.current = setTimeout(finish, 8000);
 
     return () => {
       if (timeoutRef.current) clearTimeout(timeoutRef.current);
     };
-  }, [isLoading, nextRoute, stopLoading, setLocation]);
+  }, [isLoading, finish]);
 
   return (
     <AnimatePresence mode="wait">
@@ -53,11 +52,13 @@ export function LoadingScreen() {
           <div className="absolute inset-0 bg-gradient-to-b from-purple-900/20 to-black" />
 
           {/* Video container */}
+          {/* Fades in but never scales — scaling it up from 0.95 left a sliver of
+              background showing round the edges for the first frames. */}
           <motion.div
-            initial={{ scale: 0.95, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.4, type: 'spring', stiffness: 100 }}
-            className="relative z-10 w-full h-full flex items-center justify-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.25 }}
+            className="absolute inset-0 z-10 w-full h-full overflow-hidden"
           >
             <video
               ref={videoRef}
@@ -65,7 +66,11 @@ export function LoadingScreen() {
               autoPlay
               muted
               playsInline
-              className="w-full h-full object-cover"
+              onEnded={finish}
+              onError={finish}
+              // cover, so the clip fills any screen edge to edge — phone, laptop
+              // or smart board — with no letterboxing down the sides.
+              className="absolute inset-0 w-full h-full object-cover"
               style={{
                 filter: 'drop-shadow(0 0 40px rgba(168, 85, 247, 0.3))',
               }}
